@@ -1,0 +1,6 @@
+
+Erro [041] Erro ao tentar logar, Verifique se as Informações digitadas estão corretas.
+
+Erro [046] Esse nome de usuário já existe!
+
+Erro [047]  Esse nome de usuário não existe!
