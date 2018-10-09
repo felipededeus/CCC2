@@ -40,6 +40,7 @@ include "conexao.class.php";
   $idprofessor = $_POST['idprofessor'];
   $idmateria = $_POST['idmateria'];
   $idaluno = $_POST['idaluno'];
+  $numaluno = $_POST['numaluno'];
   $idclasse = $_POST['idclasse'];
   $observ = $_POST['observ'];
   $cursosid= $_POST['cursosid'];
@@ -72,7 +73,7 @@ $sql = "SELECT idocorrencias FROM ocorrencias";
                     $postsquetem = $postsquetem + 1;
 
 
-                      $sql2 = "INSERT INTO conselho (datareg, professor_id, materia_IDmateria, aluno_idaluno, ocorrencias_idocorrencias, classe_idclasse, observ, cursos_id) values (:datareg, :idprofessor, :idmateria, :idaluno, :idocorrencias, :idclasse, :observ, :cursosid)";
+                      $sql2 = "INSERT INTO conselho (datareg, professor_id, materia_IDmateria, aluno_idaluno, ocorrencias_idocorrencias, classe_idclasse, observ, numaluno, cursos_id) values (:datareg, :idprofessor, :idmateria, :idaluno, :idocorrencias, :idclasse, :observ, :numaluno, :cursosid)";
 
     $stm2 = conexao::prepare($sql2);
 
@@ -83,6 +84,7 @@ $sql = "SELECT idocorrencias FROM ocorrencias";
    $stm2->bindValue(\':idocorrencias\', $check'.$row['idocorrencias'].');
    $stm2->bindValue(\':idclasse\', $idclasse);
    $stm2->bindValue(\':observ\', $observ);
+   $stm2->bindValue(\':numaluno\', $numaluno);
    $stm2->bindValue(\':cursosid\', $cursosid);   
 
    if($stm2->execute()){

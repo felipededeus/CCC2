@@ -30,12 +30,6 @@
 include("conexao.class.php");   //verifica se existe conexão com bd; caso não tenta, cria uma nova
 
 
-//Segurança de SQL INJECTION  
-
-$nome = preg_replace('/[À-Úà-ú]/','', $_POST['nome']);
-$snome = preg_replace('/[À-Úà-ú]/','', $_POST['username']);
-$username = preg_replace('/[À-Úà-ú]/','', $_POST['teleresp']);
-$email =  addslashes ($_POST['email']); 
 
 
 //Pegar dados do Form

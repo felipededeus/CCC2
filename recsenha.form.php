@@ -6,22 +6,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Agency Template</title>
-<!-- CSS Links -->
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/login.css">
-<!-- Bootstrap -->
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap4.css">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<title>Recuperar Senha</title>
+<?php  include 'imp.css.php';  ?> <!-- Importando CSS -->
 </head>
 <body>
+<?php  include 'imp.java.php';  ?> <!-- Importando Scripts -->
 <div class="container-fluid bgnav">
 <?php	include 'nav.php';	?> <!-- Importando Barra de Navegação -->
 	</div>
@@ -69,10 +58,7 @@
 <!--  SECTION-1 -->
 <?php	include 'footer.php';	?> <!-- Importando Rodapé -->
 <!-- / FOOTER --> 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="js/jquery-1.11.3.min.js"></script> 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="js/bootstrap.js"></script>
+
 </body>
 </html> 
 

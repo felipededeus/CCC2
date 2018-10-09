@@ -32,26 +32,13 @@ if (!isset($_SESSION['admin'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Administração</title>
-  <!-- CSS Links -->
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/login.css">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/bootstrap4.css">
-
-  <script src="js/jquery-ui.min.js"></script> 
-  
-  <!-- Include all compiled plugins (below), or include individual files as needed --> 
-  <script src="js/bootstrap.js"></script>
-
-  <script>
-    $( function() {
-      $( "#accordion" ).accordion();
-    } );
-  </script>
+ <?php  include 'imp.css.php';  ?> <!-- Importando CSS -->
 
 </head>
 <body>
+
+  <?php  include 'imp.java.php';  ?> <!-- Importando Scripts -->
+
   <div class="container-fluid bgnav">
     <?php	include 'nav.php';	?> <!-- Importando Barra de Navegação -->
   </div>
@@ -133,43 +120,11 @@ if (!isset($_SESSION['admin'])) {
           </div>
           <div class="modal-body">
               <!-- Button trigger modal -->
-          <a href="admin.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
-            <img src="images/add.png" width="18px"/>  Adminstrador
+          <a href="sol.rel.turma.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">            
+            Relatório por Turma
           </a>
 
-          <!-- Button trigger modal -->
-          <a href="pedagogo.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
-            <img src="images/add.png" width="18px"/>  Pedagogo
-          </a>
-
-          <!-- Button trigger modal -->
-          <a href="aluno.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
-            <img src="images/add.png" width="18px"/>  Aluno
-          </a>
-
-          <!-- Button trigger modal -->
-          <a href="turma.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
-            <img src="images/add.png" width="18px"/>Turma
-          </a>
-
-          <!-- Button trigger modal -->
-          <a href="cadocorren.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
-            <img src="images/add.png" width="18px"/>Ocorrência
-          </a>
-          <!-- Button trigger modal -->
-
-          <a href="materia.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
-           <img src="images/add.png" width="18px"/> Matéria
-         </a>
-
-         <!-- Button trigger modal -->
-         <a href="curso.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
-          <img src="images/add.png" width="18px"/>  Curso
-             
-           <!-- Button trigger modal -->
-         <a href="professor.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
-          <img src="images/add.png" width="18px"/>  Professor
-        </a>
+         
       </div>
         
           <div class="modal-footer">
@@ -207,11 +162,6 @@ if (!isset($_SESSION['admin'])) {
 </div> <!-- /jumbotron-->
 
 
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="js/jquery-1.11.3.min.js"></script> 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="js/bootstrap.js"></script>
 <?php	include 'footer.php';	?> <!-- Importando Rodapé -->
 
 

@@ -1,4 +1,4 @@
-﻿<?php session_start(); 
+<?php session_start(); 
 
 if (!isset($_SESSION['username'])) {
   header("Location: index.php");
@@ -39,22 +39,22 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
       <div class="row"> 
         <div class="col-xs-12">
          
-          <h2 class="text-center login-title"><h2>Relatório de Ocorrências</h2>
+          <h2 class="text-center login-title"><h2>Relatórios por turma: Solicitar</h2> <hr>
           </h2>
 
           <div class="account-wall">
 
 
-              
+              <form method="post" action="rel.turma.php">
            
               <!-- Data da Ocorrência -->
 
-              <div class="col-md-2 pt-3">
+              <div class="col-md-6 pt-3">
                 Data Inicial:
                 <input name="dataini" class="form-control" type="date" value="<?php echo date('Y-m-d'); ?>" />
               </div>
 
-               <div class="col-md-2 pt-3">
+               <div class="col-md-6 pt-3">
                 Data Final:
                 <input name="datafim" class="form-control" type="date" value="<?php echo date('Y-m-d'); ?>" />
               </div>
@@ -156,7 +156,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
               </div>
 <!-- Inserir aqui professor -->
 
- <div class="col-md-4 pt-3">
+ <div class="col-md-6 pt-3">
 
 
 
@@ -173,14 +173,8 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
 
 
 
-              <div class="col-md-4 pt-3">
-                Nome do Aluno:
+             
 
-                <input type="text" name="aluno" class="form-control" id="aluno"/>
-                <input type="text" hidden="1" name="idaluno" class="form-control" id="idaluno"/>
-                <div id="mydiv"> </div>
-
-              </div>      
 
 
               <script>
@@ -202,47 +196,25 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
 });
 
 
-                 
-                $('#aluno').autocomplete({ source: 'completar.php?acao=autocomplete', minLength: 2, autoFocus: true, appendTo: '#formoco',
-
-
-                  select: function(e,ui){
-                    e.preventDefault();
-    // set value in your element
-    $(this).val(ui.item.label);
-    // set value in the hidden field
-    $('#idaluno').val(ui.item.value);
-  },
-
-
-
-});
+              
 
 
 
 </script>
 
+ <button type="submit" class="btn btn-primary col-md-12 mt-3  ">Gerar relatório
+ </button>
 
 
 
 
 
 
+<span class="clearfix">
+
+</span>
 
 
-
-
-
-
-
-
-<div class="col-md-12 pt-3">
-
-<?php include 'relatorios.controller.php'; ?>
-
-</div>
-
-<span class="clearfix"></span>
 </form>
 </div>
 </div>

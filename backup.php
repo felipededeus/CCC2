@@ -8,7 +8,7 @@ if ($acao != 'autocomplete' ) { exit;}
 $search=($_GET['term']);
 
 
-$sql = "SELECT idaluno, nome, snome FROM aluno WHERE nome LIKE '%".$search."%' ORDER BY nome ASC ";
+$sql = "SELECT idaluno, nome, snome FROM aluno WHERE nome LIKE '%".$search."%' ORDER BY nome ASC "; TESTEEEEEEEEE
         $stm = Conexao::prepare($sql);
         $stm->bindValue(1, $search);     
         $stm->execute();

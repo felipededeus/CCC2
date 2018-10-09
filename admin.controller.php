@@ -25,20 +25,13 @@
 
 
 		<?php 
-session_start();
+
 include("conexao.class.php");   //verifica se existe conexão com bd; caso não tenta, cria uma nova
 
 
 //Segurança de SQL INJECTION  
 
-$re = '/[À-Úà-ú]/';
-$str = '$%@*@&*KKKDDHH
-';
-$subst = ' ';
 
-$result = preg_replace($re, $subst, $str, 1);
-
-echo "The result of the substitution is ".$result;
 
 $nome =  preg_replace("/[^[:alnum:]_]/", " ",$_POST ['nome']);
 $snome = preg_replace('[À-Úà-ú]',' ', $_POST['snome']);

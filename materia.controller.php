@@ -28,8 +28,7 @@
          include("conexao.class.php");   //verifica se existe conexão com bd; caso não tenta, cria uma nova
 
 
-		$nome = preg_replace('/[À-Úà-ú]/','', $_POST['nome']);
-        $descr = preg_replace('/[À-Úà-ú]/','', $_POST['descr']);
+		
 
 
 
@@ -37,7 +36,7 @@
 
     $nome = $_POST['nome'];
 
-    $desc = $_POST['desc'];
+    $desc = $_POST['descr'];
 
     
 

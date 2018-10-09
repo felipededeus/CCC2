@@ -31,13 +31,6 @@
 include("conexao.class.php");   //verifica se existe conexão com bd; caso não tenta, cria uma nova
 
 
-//Segurança de SQL INJECTION  
-
-$nome = preg_replace('/[À-Úà-ú]/','', $_POST['nome']);
-$snome = preg_replace('/[À-Úà-ú]/','', $_POST['username']);
-$username = preg_replace('/[À-Úà-ú]/','', $_POST['teleresp']);
-$email =  addslashes ($_POST['email']); 
-
 //Pegar dados do Form
 
     $nome = $_POST['nome'];
@@ -61,7 +54,7 @@ $email =  addslashes ($_POST['email']);
     if ($senha != $rsenha) {
     	echo' <div class="alert alert-danger" role="alert">
 <h3>Atenção: Senhas Diferentes!</h3><br>
-<a href="professor.form.php"> <h4>Voltar</h4></a>
+<a href="pedagogo.form.php"> <h4>Voltar</h4></a>
   </div>';
 
     }
@@ -78,7 +71,7 @@ $email =  addslashes ($_POST['email']);
  if ($stm->rowCount()> 0) {     
 
     $_SESSION ['jaexiste'] = "Erro[046]: Esse nome de usuário já existe!";  
-    header('Location: professor.form.php');
+    header('Location: pedagogo.form.php');
 
   }
 

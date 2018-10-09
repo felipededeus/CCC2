@@ -18,7 +18,10 @@ $a_json_invalid = array(array("id" => "#", "value" => $term, "label" => "Only le
 $json_invalid = json_encode($a_json_invalid);
  
 // replace multiple spaces with one
+//'%or%'
+
 $term = preg_replace('/\s+/', ' ', $term);
+
  
 // SECURITY HOLE ***************************************************************
 // allow space, any unicode letter and digit, underscore and dash
@@ -34,15 +37,15 @@ if(preg_match("/[^\040\pL\pN_-]/u", $term)) {
 
 
 
-$sql = "SELECT idaluno, nome, snome FROM aluno WHERE nome LIKE '%".$term."%' UNION SELECT idaluno, nome, snome FROM aluno WHERE snome LIKE '%".$term."%'   ";
-       
-        $stm = Conexao::prepare($sql);         
+$sql = "SELECT id, nome, snome FROM professor WHERE nome LIKE '%".$term."%' UNION SELECT id, nome, snome FROM professor WHERE snome LIKE '%".$term."%'   ";
+        $stm = Conexao::prepare($sql);
+      
         $stm->execute();
 
 
           while($row=$stm->fetch(PDO::FETCH_ASSOC)){
          
-               $a_json_row["value"] = $row['idaluno'];
+               $a_json_row["value"] = $row['id'];
                $a_json_row["label"] = $row['nome'].' '.$row['snome'];
                array_push($a_json, $a_json_row);
 

@@ -30,14 +30,13 @@ if (!isset($_SESSION['username'])) {
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cadastro de Administrador</title>
-<!-- CSS Links -->
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/login.css">
-<!-- Bootstrap -->
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap4.css">
+<?php  include 'imp.css.php';  ?> <!-- Importando CSS -->
+
 </head>
 <body>
+
+    <?php  include 'imp.java.php';  ?> <!-- Importando Scripts -->
+    
 <div class="container-fluid bgnav">
 <?php	include 'nav.php';	?> <!-- Importando Barra de Navegação -->
 </div>
@@ -130,10 +129,7 @@ if (!isset($_SESSION['username'])) {
 
 <?php	include 'footer.php';	?> <!-- Importando Rodapé -->
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="js/jquery-1.11.3.min.js"></script> 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="js/bootstrap.js"></script>
+
 </body>
 </html> 
 

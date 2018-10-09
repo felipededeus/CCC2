@@ -46,7 +46,8 @@ class Conexao{
 }
 
 function hashrec(){
-  $sql = "SELECT email, username, senha FROM admin WHERE username= :username UNION SELECT email, username, senha FROM professor WHERE username= :username";
+
+  $sql = "SELECT email, username, senha FROM admin WHERE username= :username UNION SELECT email, username, senha FROM professor WHERE username= :username UNION SELECT email, username, senha FROM pedagogo WHERE username= :username";
   $stm = Conexao::prepare($sql);
   $stm->bindParam(':username', $username);
   $stm->execute();
@@ -59,6 +60,7 @@ function hashrec(){
   
   return $novo_valor;
 }
+
 
 
 

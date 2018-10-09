@@ -29,31 +29,17 @@ if (!isset($_SESSION['admin'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cadastro de Aluno</title>
 
-  <!-- CSS Links -->
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/login.css">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/bootstrap4.css">
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-  <script src="js/jquery-3.3.1.min.js"></script> 
-  <!-- Include all compiled plugins (below), or include individual files as needed --> 
 
-  <!-- JavaScripts -->
-  <script type="text/javascript" src="js/bootstrap-notify.min.js"></script>
-  <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+  <?php  include 'imp.css.php';  ?> <!-- Importando CSS -->
 
-  <script type="text/javascript">
-    
-    $(document).ready(function(){
-  $('#date').mask('(00) 0 0000-0000');
-})
-  </script>
+
 
 
 </head>
 <body>
+
+  <?php  include 'imp.java.php';  ?> <!-- Importando Scripts -->
   <div class="container-fluid bgnav">
     <?php	include 'nav.php';	?> <!-- Importando Barra de Navegação -->
   </div>
@@ -84,12 +70,21 @@ if (!isset($_SESSION['admin'])) {
                 <input type="text" class="form-control" placeholder="Rose" name="nomeresp" maxlength="220" required autofocus>
               </div>
 
+              <script type="text/javascript">
+
+                $(document).ready(function(){
+                  $('#date').mask('(00) 0 0000-0000');
+                })
+              </script>
+
+
+
               <div class="col-md-12 pt-3">
                 Telefone Do Responsável:
                 <input type="numeric"   id="date" class="form-control" placeholder="" name="teleresp" maxlength="14" required autofocus>
               </div>
 
-            
+
               <div class="col-md-12 pt-3">
                 Sexo:
 
@@ -103,16 +98,20 @@ if (!isset($_SESSION['admin'])) {
 
               <div class="col-md-12 pt-3">
                 Data de Nascimento:
-                <input type="date" class="form-control" placeholder="" name="dtnasc" maxlength="12" equired autofocus>
+                <input type="date" class="form-control" placeholder="" name="dtnasc" maxlength="12" required autofocus>
               </div>
 
 
               <div class="col-md-12 pt-3">
-                Matrícula Escolar:
-                <input type="numeric" class="form-control" placeholder="1454" name="matriescol" maxlength="11" required autofocus>
+                Matrícula Escolar: (Opcional)
+                <input type="numeric" class="form-control" placeholder="1454" name="matriescol" maxlength="11" autofocus>
               </div>
 
-            
+              <div class="col-md-12 pt-3">
+                Cadastro Geral de Matrícula (CGM):
+                <input type="numeric" class="form-control" placeholder="23912" name="cgm" maxlength="8" required autofocus>
+              </div>
+
                 <!--
               <div class="col-md-12 pt-3">
                 Turma Associada:
@@ -136,13 +135,10 @@ if (!isset($_SESSION['admin'])) {
 
              <div class="col-md-12 pt-3">
               E-mail Responsavel:
-              <input type="E-mail" class="form-control" placeholder="Sobrenome" name="emailresp" maxlength="100" required autofocus>
+              <input type="email" class="form-control" placeholder="exemplo@provedpr.com" name="emailresp" maxlength="100" required autofocus>
             </div>
 
-              <div class="col-md-12 pt-3">
-                Cadastro Geral de Matrícula (CGM):
-                <input type="numeric" class="form-control" placeholder="23912" name="cgm" maxlength="8" required autofocus>
-              </div>
+
 
 
             <div class="col-md-12 pt-3">
