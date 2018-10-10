@@ -51,12 +51,12 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
 
               <div class="col-md-6 pt-3">
                 Data Inicial:
-                <input name="dataini" class="form-control" type="date" value="<?php echo date('Y-m-d'); ?>" />
+                <input name="dataini" class="form-control" type="date" value="<?php echo date('Y-m-d'); ?>" required />
               </div>
 
                <div class="col-md-6 pt-3">
                 Data Final:
-                <input name="datafim" class="form-control" type="date" value="<?php echo date('Y-m-d'); ?>" />
+                <input name="datafim" class="form-control" type="date" value="<?php echo date('Y-m-d'); ?>" required/>
               </div>
 
 
@@ -66,7 +66,8 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
               <div class="col-md-2 pt-3">
                 
                 Curso
-                <select name="cursosid" class="form-control form-control-lg"> 
+                <select name="cursosid" class="form-control form-control-lg "required> 
+                  
                   <?php
 
                   include "conexao.class.php";
@@ -89,7 +90,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
 
               <div class="col-md-2 pt-3">
                 Matéria:
-                <select name="idmateria" class="form-control form-control-lg"> 
+                <select name="idmateria" class="form-control form-control-lg" required> 
                   <?php
 
                   
@@ -110,7 +111,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
 
               <div class="col-md-2 pt-3">
                 Turma
-                <select name="idclasse" class="form-control form-control-lg"> 
+                <select name="idclasse" class="form-control form-control-lg"required> 
                   <?php
 
 
@@ -162,7 +163,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
 
                 Nome do Professor:
 
-                <input type="text" name="professor" class="form-control" id="professor"/>
+                <input type="text" name="professor" class="form-control" id="professor"required/>
                 <input type="text" hidden="1" name="idprofessor" class="form-control" id="idprofessor"/>
                 <div id="mydiv"> </div>
 

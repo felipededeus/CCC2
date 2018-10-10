@@ -15,11 +15,12 @@ else{
 
 if (!isset($_SESSION['admin'])) {
 	header("Location: index.php");    
-	exit;      
+	exit;  
+
+
 
 }
 ?> <!-- Verificando se o infeliz tah logado e pode ver essa página-->
-
 
 
 <?php
@@ -108,22 +109,31 @@ while($rowt=$stmt->fetch(PDO::FETCH_ASSOC)){
 
 <?php
 // Nomeia Os Cursos
-                  
-                  $sqlc = "SELECT * FROM cursos WHERE id = :cursosid";
-                  $stmc = conexao::prepare($sqlc);
-                  $stmc->bindParam(':cursosid', $cursosid);
-                  $stmc->execute();    
 
-                  while($rowc=$stmc->fetch(PDO::FETCH_ASSOC)){
-                  $nomecurso = $rowc['nome'];
-        
-                  }
-                  ?>
+$sqlc = "SELECT * FROM cursos WHERE id = :cursosid";
+$stmc = conexao::prepare($sqlc);
+$stmc->bindParam(':cursosid', $cursosid);
+$stmc->execute();    
+
+while($rowc=$stmc->fetch(PDO::FETCH_ASSOC)){
+	$nomecurso = $rowc['nome'];
+
+}
+?>
+
+
 
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
+	<style>
+                @media print { 
+                    #noprint { display:none; } 
+                    body { background: #fff; }
+                }
+            </style>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 	<meta charset="utf-8">
@@ -136,14 +146,21 @@ while($rowt=$stmt->fetch(PDO::FETCH_ASSOC)){
 <body style="background-color: #ffffff; background-image: none;">
 
 	<?php  include 'imp.java.php';  ?> <!-- Importando Scripts -->
+<div id="noprint">
+	<br>
+	<center>
+<form><input type="button" name="imprimir" class="btn btn-lg" value="Imprimir" onclick="window.print();"> </form> <HR> </div> </center>
 
 
 	<?php
-	echo '<h4> Pré Conselho: '. $datai->format('Y').' | '. $datai->format('d-m-Y').' – Até - '. $dataf->format('d-m-Y').'<br>  Professor: '.$professor.' | Matéria: '.$nmateria.'  <br>Turma: '.$nometurma.' | Curso: '.$nomecurso.' </h4> ';
+	$dt = new DateTime();
+
+	echo ' Pré Conselho: '. $datai->format('Y').' | '. $datai->format('d-m-Y').' – Até - '. $dataf->format('d-m-Y').' |  Professor: '.$professor.' | Matéria: '.$nmateria.'  <br>Turma: '.$nometurma.' | Curso: '.$nomecurso.' <br> Relatório Gerado em '.$dt->format('d/m/Y H:i').' ';
 	?>
+
 	<hr>
 
-	<table class="table table-bordered table-hover table-striped">
+	<table class=" table-bordered table-hover table-sm table-striped" style="width: 100%;">
 		<thead class="thead-light">
 			<tr>
 
@@ -181,7 +198,7 @@ while($rowt=$stmt->fetch(PDO::FETCH_ASSOC)){
 		INNER JOIN ocorrencias ON idocorrencias = ocorrencias_idocorrencias
 		INNER JOIN cursos ON cursos.id = cursos_id
 		INNER JOIN materia ON IDmateria = materia_IDmateria  
-		WHERE professor.id = :idprofessor AND conselho.materia_IDmateria = :idmateria AND conselho.datareg BETWEEN :dataini AND :datafim
+		WHERE professor.id = :idprofessor AND conselho.classe_idclasse = :idclasse AND conselho.materia_IDmateria = :idmateria AND conselho.datareg BETWEEN :dataini AND :datafim
 		GROUP BY conselho.aluno_idaluno
 		ORDER BY conselho.numaluno ASC ";
 
@@ -189,6 +206,7 @@ while($rowt=$stmt->fetch(PDO::FETCH_ASSOC)){
 		$stm = conexao::prepare($sql); 
 		$stm->bindParam(':idprofessor', $idprofessor);
 		$stm->bindParam(':idmateria', $idmateria);
+		$stm->bindParam(':idclasse', $idclasse);
 		$stm->bindParam(':dataini', $dataini);
 		$stm->bindParam(':datafim', $datafim);
 		$stm->execute(); 
@@ -225,21 +243,20 @@ while($rowt=$stmt->fetch(PDO::FETCH_ASSOC)){
 			INNER JOIN ocorrencias ON idocorrencias = ocorrencias_idocorrencias
 			INNER JOIN cursos ON cursos.id = cursos_id
 			INNER JOIN materia ON IDmateria = materia_IDmateria  
-			WHERE professor.id = :idprofessor AND conselho.materia_IDmateria = :idmateria AND conselho.datareg BETWEEN :dataini AND :datafim AND conselho.aluno_idaluno = :idaluno
-			GROUP BY conselho.ocorrencias_idocorrencias
-
-			";
+			WHERE professor.id = :idprofessor AND conselho.materia_IDmateria = :idmateria AND  conselho.classe_idclasse = :idclasse AND conselho.aluno_idaluno = :idaluno AND conselho.datareg  BETWEEN :dataini AND :datafim 
+			GROUP BY conselho.ocorrencias_idocorrencias			";
 
            // Executa a Query 
 			$stm2 = conexao::prepare($sql2); 
 			$stm2->bindParam(':idprofessor', $idprofessor);
 			$stm2->bindParam(':idmateria', $idmateria);
+			$stm2->bindParam(':idclasse', $idclasse);
 			$stm2->bindParam(':dataini', $dataini);
 			$stm2->bindParam(':datafim', $datafim);
 			$stm2->bindParam(':idaluno', $idaluno);
 			$stm2->execute(); 
 
-			while($row2=$stm2->fetch(PDO::FETCH_ASSOC)){ echo 	'<td> '.$row2['oconome'].'</td>';  }
+			while($row2=$stm2->fetch(PDO::FETCH_ASSOC)){ echo 	'<td> '.$row2['oconome'].'</td>';   }
 
 			echo '</tr>';
 
@@ -247,6 +264,8 @@ while($rowt=$stmt->fetch(PDO::FETCH_ASSOC)){
 
 
 		}
+
+
 
 		?>
 		
@@ -257,3 +276,4 @@ while($rowt=$stmt->fetch(PDO::FETCH_ASSOC)){
 
 </body>
 </html>
+
