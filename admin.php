@@ -137,15 +137,85 @@ if (!isset($_SESSION['admin'])) {
     <!-- Fim Modal -->
 
 
-    <h2 class="display-4 pb-5 ml-5">Painel Administrativo:</h2>
+        <!-- Modal -->
+    <div class="modal fade" id="ModalFerramentas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+           <h4>
+             Ferramentas Administrativas
+            </h4> 
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"> </h4>
+          </div>
+          <div class="modal-body">
+
+
+                  <!-- Button trigger modal -->
+          <a href="adm.admin.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+            <img src="images/see.png" width="18px"/> Gerenciar Adminstradores
+          </a>
+
+          <!-- Button trigger modal -->
+          <a href="adm.pedagogo.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+            <img src="images/see.png" width="18px"/> Gerenciar Pedagogos
+          </a>
+
+          <!-- Button trigger modal -->
+          <a href="adm.aluno.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+            <img src="images/see.png" width="18px"/>  Gerenciar Alunos
+          </a>
+
+          <!-- Button trigger modal -->
+          <a href="adm.turma.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+            <img src="images/see.png" width="18px"/> Gerenciar Turmas
+          </a>
+
+          <!-- Button trigger modal -->
+          <a href="adm.cadocorren.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+            <img src="images/see.png" width="18px"/> Gerenciar Ocorrências
+          </a>
+          <!-- Button trigger modal -->
+
+          <a href="adm.materia.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+           <img src="images/see.png" width="18px"/> Gerenciar Matérias
+         </a>
+
+         <!-- Button trigger modal -->
+         <a href="adm.curso.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+          <img src="images/see.png" width="18px"/>  Gerenciar Cursos
+             
+           <!-- Button trigger modal -->
+         <a href="adm.professor.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+          <img src="images/see.png" width="18px"/>  Gerenciar Professores
+        </a>
+         
+      </div>
+        
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fim Modal -->
+
+
+
+    <h2 class="display-4 pb-5 ml-5">Painel Administrativo:</h2> <hr>
       
       <center>
         <!-- Button trigger modal -->
-    <div class="btn btn-dacor"  style="color: #fff;" data-toggle="modal" data-target="#ModalCadastros"> <h4>   Cadastros    </h4>   </div>
+    <div class="btn btn-dacor"  style="color: #fff;" data-toggle="modal" data-target="#ModalCadastros"> <h4>   Cadastros    </h4>   </div> 
         <!-- Fim Button trigger modal -->
         
          <!-- Button trigger modal -->
-    <div class="btn btn-dacor"  style="color: #fff;" data-toggle="modal" data-target="#ModalRelatorios"> <h4>  Relatórios    </h4>   </div>
+    <div class="btn btn-dacor"  style="color: #fff;" data-toggle="modal" data-target="#ModalRelatorios"> <h4>  Relatórios    </h4>   </div> 
+        <!-- Fim Button trigger modal -->
+
+         <!-- Button trigger modal -->
+    <div class="btn btn-dacor"  style="color: #fff;" data-toggle="modal" data-target="#ModalFerramentas"> <h4>  Ferramentas Administrativas   </h4>   </div> <hr>
         <!-- Fim Button trigger modal -->
         
         </center>
