@@ -152,41 +152,41 @@ if (!isset($_SESSION['admin'])) {
 
 
                   <!-- Button trigger modal -->
-          <a href="adm.admin.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
-            <img src="images/see.png" width="18px"/> Gerenciar Adminstradores
+          <a href="adm/adm.admin.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+            <img src="images/see.png" width="18px"/> Geadm/renciar Adminstradores
           </a>
 
           <!-- Button trigger modal -->
-          <a href="adm.pedagogo.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+          <a href="adm/adm.pedagogo.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
             <img src="images/see.png" width="18px"/> Gerenciar Pedagogos
           </a>
 
           <!-- Button trigger modal -->
-          <a href="adm.aluno.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+          <a href="adm/adm.aluno.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
             <img src="images/see.png" width="18px"/>  Gerenciar Alunos
           </a>
 
           <!-- Button trigger modal -->
-          <a href="adm.turma.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+          <a href="adm/adm.turma.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
             <img src="images/see.png" width="18px"/> Gerenciar Turmas
           </a>
 
           <!-- Button trigger modal -->
-          <a href="adm.cadocorren.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+          <a href="adm/adm.cadocorren.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
             <img src="images/see.png" width="18px"/> Gerenciar Ocorrências
           </a>
           <!-- Button trigger modal -->
 
-          <a href="adm.materia.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+          <a href="adm/adm.materia.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
            <img src="images/see.png" width="18px"/> Gerenciar Matérias
          </a>
 
          <!-- Button trigger modal -->
-         <a href="adm.curso.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+         <a href="adm/adm.curso.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
           <img src="images/see.png" width="18px"/>  Gerenciar Cursos
              
            <!-- Button trigger modal -->
-         <a href="adm.professor.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+         <a href="adm/adm.professor.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
           <img src="images/see.png" width="18px"/>  Gerenciar Professores
         </a>
          
