@@ -52,11 +52,9 @@ $stm->bindValue(2, $desc);
 
   
 if($stm->execute()){
-  echo '
-  <div class="alert alert-success" role="alert">
-  Matéria Cadastrada
-  </div>
-    ';
+   $_SESSION ['cadok'] =  "1" ; // Gera Session se deu certo
+           header('Location: materia.form.php'); // Manda pra página de onde o user veio
+           exit(); // Para o Script     ;
 }
 
    

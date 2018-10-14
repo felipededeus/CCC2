@@ -52,10 +52,9 @@ include("conexao.class.php");   //verifica se existe conexão com bd; caso não 
 //Verifica se as duas senhas são iguais
 
     if ($senha != $rsenha) {
-    	echo' <div class="alert alert-danger" role="alert">
-<h3>Atenção: Senhas Diferentes!</h3><br>
-<a href="pedagogo.form.php"> <h4>Voltar</h4></a>
-  </div>';
+    $_SESSION ['cadsenhad'] = "1";  
+    header('Location: pedagogo.form.php');
+    exit();
 
     }
 
@@ -72,6 +71,7 @@ include("conexao.class.php");   //verifica se existe conexão com bd; caso não 
 
     $_SESSION ['jaexiste'] = "Erro[046]: Esse nome de usuário já existe!";  
     header('Location: pedagogo.form.php');
+    exit();
 
   }
 
@@ -95,11 +95,9 @@ $stm->bindValue(6, $senha);
 
   
 if($stm->execute()){
-  echo '
-  <div class="alert alert-success" role="alert">
-  Pedagogo Cadastrado
-  </div>
-    ';
+ $_SESSION ['cadok'] =  "1" ; // Gera Session se deu certo
+           header('Location: pedagogo.form.php'); // Manda pra página de onde o user veio
+           exit(); // Para o Script     ;
 }//End desse If aí de Cima
 
 

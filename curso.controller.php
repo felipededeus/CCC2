@@ -54,11 +54,9 @@
 
 		
 		if($stm->execute()){
-			echo '
-			<div class="alert alert-success" role="alert">
-			Curso Cadastrado
-			</div>
-			';
+			 $_SESSION ['cadok'] =  "1" ; // Gera Session se deu certo
+           header('Location: curso.form.php'); // Manda pra página de onde o user veio
+           exit(); // Para o Script     ;
 		}
 
 		

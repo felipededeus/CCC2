@@ -61,10 +61,9 @@ $sql = "SELECT username, senha FROM admin WHERE username= :username and senha= :
 //Verifica se as duas senhas são iguais
 
     if ($senha != $rsenha) {
-    	echo' <div class="alert alert-danger" role="alert">
-<h3>Atenção: Senhas Diferentes!</h3><br>
-<a href="admin.form.php"> <h4>Voltar</h4></a>
-  </div>';
+    	$_SESSION ['cadsenhad'] = "1";  
+    header('Location: admin.form.php');
+    exit();
 
     }
 
@@ -82,6 +81,7 @@ $sql = "SELECT username, senha FROM admin WHERE username= :username and senha= :
 
     $_SESSION ['jaexiste'] = "Erro[046]: Esse nome de usuário já existe!";  
     header('Location: admin.form.php');
+    exit();
 
   }
 
@@ -104,11 +104,9 @@ $stm->bindValue(6, $senha);
 
   
 if($stm->execute()){
-  echo '
-  <div class="alert alert-success" role="alert">
-  Administrador do Sistema Cadastrado
-  </div>
-    ';
+           $_SESSION ['cadok'] =  "1" ; // Gera Session se deu certo
+           header('Location: admin.form.php'); // Manda pra página de onde o user veio
+           exit(); // Para o Script     
 }
 
    

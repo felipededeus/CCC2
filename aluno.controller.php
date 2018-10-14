@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php
+
+session_start();
+
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -84,11 +90,9 @@ $emailresp = preg_replace('/[À-Úà-ú]/','', $_POST['emailresp']);
 
 		
 		if($stm->execute()){
-			echo '
-			<div class="alert alert-success centralizar aumentar" role="alert">
-			Aluno Cadastrado
-			</div>
-			';
+			 $_SESSION ['cadok'] =  "1" ; // Gera Session se deu certo
+           header('Location: aluno.form.php'); // Manda pra página de onde o user veio
+           exit(); // Para o Script     ;
 		}
 
 		

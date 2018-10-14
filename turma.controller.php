@@ -57,11 +57,9 @@ $stm->bindValue(3, $periestu);
 
   
 if($stm->execute()){
-  echo '
-  <div class="alert alert-success" role="alert">
-  Turma Cadastrada
-  </div>
-    ';
+  $_SESSION ['cadok'] =  "1" ; // Gera Session se deu certo
+           header('Location: turma.form.php'); // Manda pra página de onde o user veio
+           exit(); // Para o Script     ;
 }
 
    

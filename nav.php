@@ -58,6 +58,24 @@
               else{
 
                 echo "Por Favor, Faça Login!";
+
+                echo "<script>
+
+                  $.notify(\"Você está Deslogado: Por Favor, Faça Login!\", {
+                    type: 'danger',
+
+
+                    animate: {
+
+                      enter: 'animated lightSpeedIn',
+                      exit: 'animated lightSpeedOut'
+                    }
+                    });
+
+
+
+
+                    </script> ";
               }
               ?>
 

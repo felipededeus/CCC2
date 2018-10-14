@@ -68,6 +68,24 @@ else{
                 <h5 class=" text-danger alert-danger">
                   <?php if (isset($_SESSION['jaexiste'])){
                     echo $_SESSION['jaexiste'];
+
+                     echo "<script>
+
+                  $.notify(\"Erro ao Cadastrar: Nome de Usuário já existe!\", {
+                    type: 'danger',
+
+
+                    animate: {
+
+                      enter: 'animated lightSpeedIn',
+                      exit: 'animated lightSpeedOut'
+                    }
+                    });
+
+
+
+
+                    </script> ";
                     unset ($_SESSION ['jaexiste']);
                     
                         //Avisa que User Já Existe
@@ -150,6 +168,61 @@ else{
 </div>
 
 </div>
+
+
+
+
+<?php if (isset($_SESSION['cadok'])){                        
+                        echo "<script>
+
+                  $.notify(\"Pedagogo Cadastrado com Sucesso!\", {
+                    type: 'success',
+
+
+                    animate: {
+
+                      enter: 'animated lightSpeedIn',
+                      exit: 'animated lightSpeedOut'
+                    }
+                    });
+
+
+
+
+                    </script> ";
+                        unset ($_SESSION ['cadok']);
+                       
+                        //Avisa que deu certo
+                      } ?>
+
+
+
+
+
+
+                      
+<?php if (isset($_SESSION['cadsenhad'])){                        
+  echo "<script>
+
+  $.notify(\"Erro ao tentar cadastrar: Senhas diferentes!\", {
+    type: 'danger',
+
+
+    animate: {
+
+      enter: 'animated lightSpeedIn',
+      exit: 'animated lightSpeedOut'
+    }
+    });
+
+
+
+
+    </script> ";
+    unset ($_SESSION ['cadsenhad']);
+
+                        //Avisa que deu certo
+  } ?>
 
 
 <?php	include 'footer.php';	?> <!-- Importando Rodapé -->

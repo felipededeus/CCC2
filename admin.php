@@ -44,7 +44,7 @@ if (!isset($_SESSION['admin'])) {
   </div>
 
 
-  <div class="jumbotron m-5" >
+  <div class="jumbotron" >
   
     <!-- Modal -->
     <div class="modal fade" id="ModalCadastros" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -153,7 +153,7 @@ if (!isset($_SESSION['admin'])) {
 
                   <!-- Button trigger modal -->
           <a href="adm/adm.admin.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
-            <img src="images/see.png" width="18px"/> Geadm/renciar Adminstradores
+            <img src="images/see.png" width="18px"/> Gerenciar Adminstradores
           </a>
 
           <!-- Button trigger modal -->
@@ -204,25 +204,29 @@ if (!isset($_SESSION['admin'])) {
 
 
     <h2 class="display-4 pb-5 ml-5">Painel Administrativo:</h2> <hr>
+
+  </div>
+
+
       
       <center>
         <!-- Button trigger modal -->
-    <div class="btn btn-dacor"  style="color: #fff;" data-toggle="modal" data-target="#ModalCadastros"> <h4>   Cadastros    </h4>   </div> 
+    <div class="btn btn-dacor mt-4"  style="color: #fff;" data-toggle="modal" data-target="#ModalCadastros"> <h4>   Cadastros    </h4>   </div> 
         <!-- Fim Button trigger modal -->
         
          <!-- Button trigger modal -->
-    <div class="btn btn-dacor"  style="color: #fff;" data-toggle="modal" data-target="#ModalRelatorios"> <h4>  Relatórios    </h4>   </div> 
+    <div class="btn btn-dacor mt-4"  style="color: #fff;" data-toggle="modal" data-target="#ModalRelatorios"> <h4>  Relatórios    </h4>   </div> 
         <!-- Fim Button trigger modal -->
 
          <!-- Button trigger modal -->
-    <div class="btn btn-dacor"  style="color: #fff;" data-toggle="modal" data-target="#ModalFerramentas"> <h4>  Ferramentas Administrativas   </h4>   </div> <hr>
+    <div class="btn btn-dacor mt-4"  style="color: #fff;" data-toggle="modal" data-target="#ModalFerramentas"> <h4>  Ferramentas Administrativas   </h4>   </div> <hr>
         <!-- Fim Button trigger modal -->
         
         </center>
       
     </button>
 
-
+<div class="jumbotron" >
 
 
 

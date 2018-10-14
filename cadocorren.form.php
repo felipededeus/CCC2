@@ -79,7 +79,29 @@ if (!isset($_SESSION['admin'])) {
 </div>
 
 
+<?php if (isset($_SESSION['cadok'])){                        
+                        echo "<script>
 
+                  $.notify(\"Ocorrência Cadastrada com Sucesso!\", {
+                    type: 'success',
+
+
+                    animate: {
+
+                      enter: 'animated lightSpeedIn',
+                      exit: 'animated lightSpeedOut'
+                    }
+                    });
+
+
+
+
+                    </script> ";
+                        unset ($_SESSION ['cadok']);
+                       
+                        //Avisa que deu certo
+                      } ?>
+   
 
 
 <?php	include 'footer.php';	?> <!-- Importando Rodapé -->
