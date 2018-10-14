@@ -10,3 +10,4 @@
   <link rel="stylesheet" href="../css/bootstrap.css">
   <!-- Data Tables -->
   <link rel="stylesheet" type="text/css" href="../DataTables/datatables.min.css"/>
+    <link rel="stylesheet" href="../css/animate.css">

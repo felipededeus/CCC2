@@ -11479,7 +11479,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": " Mostrando registros de  _START_ até _END_, Foram encontrados _TOTAL_ registros ",
+			"sInfo": "  _TOTAL_ registros ",
 	
 	
 			/**

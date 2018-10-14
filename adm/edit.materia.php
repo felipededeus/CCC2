@@ -19,23 +19,30 @@ if (!isset($IDmateria)) {
 
 include '../conexao.class.php';
 $sql = "UPDATE materia SET nome = :nome, descr= :descr WHERE IDmateria= :IDmateria";
+// Atualize na Tabela materia definindo nome antigo por nome novo descr antiga por descr nova onde IDmateria seja igual a ID materia solicitada pelo usuário
+
           $stm = Conexao::prepare($sql);
           $stm->bindParam(':IDmateria', $IDmateria);
           $stm->bindParam(':nome', $nome);
           $stm->bindParam(':descr', $descr);
           if($stm->execute()){
-           echo '
-           <div class="alert alert-success" role="alert">
-          Matéria Atualizada 
-           </div>
-           ';
+            
+           $_SESSION ['editresultid'] =  "1" ; // Gera Session se deu certo
+           header('Location: adm.materia.php'); // Manda pra página de onde o user veio
+           exit(); // Para o Script     
+
+
+
          } else{
-           echo '
-           <div class="alert alert-danger" role="alert">
-           Erro ao tentar alterar Matéria. Verefique se não existe nenhuma ocorrência relacionada a esta matéria e tente novamente.
-           </div>
-           ';
+
+          $_SESSION ['editresultid'] =  "0" ; // Gera Session se deu certo
+          header('Location: adm.materia.php'); // Manda pra página de onde o user veio
+          exit(); // Para o Script       
          } 
+
+
+
+         // Os Sessions são usados para gerar a notificação na página de origem
        
 
 

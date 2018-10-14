@@ -8,5 +8,6 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="css/bootstrap4.css">
   <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/animate.css">
   <!-- Data Tables -->
   <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
