@@ -72,7 +72,7 @@
 						<thead class="thead-light">
 							<tr>
 
-								<th>idaluno</th>
+								<th>ID</th>
 								<th>Nome</th>
 								<th>Sobrenome</th>
 								<th>Nome Reponsavel</th>
@@ -80,6 +80,7 @@
 								<th>Matricula Escolar</th>
 								<th>E-mail Reponsável</th>
 								<th>Cadastro Geral de Matrícula</th>
+								<th>Ações</th>
 
 
 

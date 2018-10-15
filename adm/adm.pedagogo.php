@@ -72,12 +72,13 @@
 						<thead class="thead-light">
 							<tr>
 
-								<th>id</th>
-								<th>Nome Pedagogo</th>
-								<th>Sobrenome Pedagogo</th>
-								<th>E-mail Pedagogo</th>
-								<th>Nome de Usuario Pedagogo</th>
+								<th>ID</th>
+								<th>Nome </th>
+								<th>Sobrenome </th>
+								<th>E-mail</th>
+								<th>Nome de Usuario</th>
 								<th>Data de Nascimento</th>
+								<th>Ações:</th>
 
 
 								
@@ -218,26 +219,26 @@
 
 
 								
-									<div class="col-md-3 pt-3">
+									<div class="col-md-12 pt-3">
 
 									<input type="text" value="'.$row['nome'].'" class="form-control" placeholder="Nome do Pedagogo" required autofocus maxlength="60"  name="name" hidden="1">
 
-                                    <div class="col-md-3 pt-3">
+                                    <div class="col-md-12 pt-3">
 									Nome:
 									<input type="text" value="'.$row['snome'].'" class="form-control" placeholder="Sobrenome do Pedagogo" required autofocus maxlength="150"  name="snome">
 									</div> 
 
-									<div class="col-md-2 pt-3">
+									<div class="col-md-12 pt-3">
 									Nome:
 									<input type="text" value="'.$row['email'].'" class="form-control" placeholder="E-mail do Pedagogo" required autofocus maxlength="100"  name="email">
 									</div>
 
-									<div class="col-md-2 pt-3">
+									<div class="col-md-12 pt-3">
 									Nome:
 									<input type="text" value="'.$row['username'].'" class="form-control" placeholder="Nome de Usuario" required autofocus maxlength="60"  name="username">
 									</div>
 
-									<div class="col-md-2 pt-3">
+									<div class="col-md-12 pt-3">
 									Nome:
 									<input type="date" value="'.$row['dtnasc'].'" class="form-control" placeholder="Data de Nascimento do Pedagogo" required autofocus maxlength=" "  name="dtnasc">
 									</div>
