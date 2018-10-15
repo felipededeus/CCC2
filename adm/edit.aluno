@@ -33,7 +33,7 @@ if (!isset($idaluno)) {
 
 include '../conexao.class.php';
 $sql = "UPDATE aluno SET nome = :nome, snome= :snome, nomeresp= :nomeresp, teleresp= :teleresp, dtnasc= :dtnasc, sexo= :sexo, matriescol= :matriescol, emailresp= :emailresp, cgm= :cgm WHERE idaluno= :idaluno";
-// Atualize na Tabela aluno definindo nome antigo por nome novo descr antiga por descr nova onde idaluno seja igual a idaluno solicitada pelo usuário
+// Atualize na Tabela aluno definindo nome antigo por nome novo e assim Sucessivamente onde idaluno seja igual a idaluno solicitada pelo usuário
 
           $stm = Conexao::prepare($sql);
           $stm->bindParam(':IDmateria', $IDmateria);
