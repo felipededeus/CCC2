@@ -220,26 +220,26 @@
 								
 									<div class="col-md-3 pt-3">
 
-									<input type="" value="'.$row['nome'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="name" hidden="1">
+									<input type="text" value="'.$row['nome'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="name" hidden="1">
 
                                     <div class="col-md-3 pt-3">
 									Nome:
-									<input type="" value="'.$row['snome'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="150"  name="snome">
+									<input type="text" value="'.$row['snome'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="150"  name="snome">
 									</div> 
 
 									<div class="col-md-2 pt-3">
 									Nome:
-									<input type="" value="'.$row['email'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="100"  name="email">
+									<input type="text" value="'.$row['email'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="100"  name="email">
 									</div>
 
 									<div class="col-md-2 pt-3">
 									Nome:
-									<input type="" value="'.$row['Username'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="username">
+									<input type="text" value="'.$row['username'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="username">
 									</div>
 
 									<div class="col-md-2 pt-3">
 									Nome:
-									<input type="" value="'.$row['dtnasc'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength=" "  name="dtnasc">
+									<input type="text" value="'.$row['dtnasc'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength=" "  name="dtnasc">
 									</div>
 
 
@@ -273,7 +273,7 @@
 									</div>
 									<div class="modal-body">
 
-									<h4> Você tem certeza que deseja deletar este Pedagogo '.$row['nome'].'?
+									<h4> Você tem certeza que deseja deletar'.$row ['nome'].' cadastrado(a) como Pedagogo(a) ?
 									<h5> A ação não pode ser revertida... </h5>
 									<hr>
 									
