@@ -10,11 +10,11 @@
 		var dados = jQuery( this ).serialize();
 		e.preventDefault();
 		$.ajax({
-        url: 'edit.materia.php', // caminho para o script que vai processar os dados
+        url: 'edit.ocorrencia.php', // caminho para o script que vai processar os dados
         type: 'POST',
         data: { dados:dados, },
         success: function(response) {
-            $("#resultados").load("adm.materia.php #resultados"); //parte da mesma página
+            $("#resultados").load("adm.ocorrencia.php #resultados"); //parte da mesma página
         },
         error: function(xhr, status, error) {
         	alert(xhr.responseText);
@@ -29,11 +29,11 @@
 		var dados = jQuery( this ).serialize();
 		e.preventDefault();
 		$.ajax({
-        url: 'del.materia.php', // caminho para o script que vai processar os dados
+        url: 'del.ocorrencia.php', // caminho para o script que vai processar os dados
         type: 'POST',
         data: { dados:dados, },
         success: function(response) {
-            $("#resultados").load("adm.materia.php #resultados"); //parte da mesma página
+            $("#resultados").load("adm.ocorrencia.php #resultados"); //parte da mesma página
         },
         error: function(xhr, status, error) {
         	alert(xhr.responseText);
@@ -53,7 +53,7 @@
 		<div class="row"> 
 			<div class="col-md-12">
 
-				<h2 class="text-center login-title">Adminstração - Matéria</h2>
+				<h2 class="text-center login-title">Adminstração - Ocorrências</h2>
 				<hr>				
 
 				
@@ -213,7 +213,7 @@
 
 									<div class="col-md-5 pt-3">
 									Nome:
-									<input type="text" value="'.$row['nome'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="nome">
+									<input type="" value="'.$row['nome'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="nome">
 									</div>
 
 
@@ -253,7 +253,7 @@
 									<h4> Você tem certeza que deseja deletar a Matéria '.$row['nome'].'?
 									<h5> A ação não pode ser revertida... </h5>
 									<hr>
-									<h5> Obs: Só é possível deletar a matéria caso nenhum professor tenha registrado uma ocorrência relacionada a ela, certifique-se de deletar todas as ocorrências relacionadas com a mesma antes. </h5>
+									<h5> Obs: Só é possível deletar a matéria caso nenhum professor tenha registrado uma ocorrência relacionada a ela, certifique-se de deletar todas as ocorrências relacionadas com a mesma antes.
 
 									<!-- Colocar Form aqui -->
 									<form class="form-cadastro" action="del.materia.php" method="post" id="formdel">
