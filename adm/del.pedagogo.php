@@ -31,7 +31,7 @@ include '../conexao.class.php';
 
 $sql = "DELETE FROM pedagogo  WHERE id= :id"; // Apague da Tabela pedagogo onde ID seja igual a ID...
           $stm = Conexao::prepare($sql);
-          $stm->bindParam(':IDmateria', $id);          
+          $stm->bindParam(':id', $id);          
           if($stm->execute()){
           
           $_SESSION ['delresultid'] =  "1" ; // Gera Session se deu certo

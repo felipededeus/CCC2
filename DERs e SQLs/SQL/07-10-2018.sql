@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `ccc`.`conselho` (
   `ocorrencias_idocorrencias` INT(2) NOT NULL,
   `classe_idclasse` INT(2) NOT NULL,
   `observ` VARCHAR(200) NULL,
-  `numaluno` VARCHAR(45) NOT NULL,
+  `numaluno` INT(3) NOT NULL,
   `cursos_id` INT(2) NOT NULL,
   PRIMARY KEY (`conselho`, `professor_id`, `materia_IDmateria`, `aluno_idaluno`, `ocorrencias_idocorrencias`, `classe_idclasse`, `cursos_id`),
   INDEX `fk_conselho_professor1_idx` (`professor_id` ASC),

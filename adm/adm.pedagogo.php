@@ -218,34 +218,37 @@
 									<input type="text" value="'.$row['id'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="id" hidden="1">
 
 
-								
-									<div class="col-md-12 pt-3">
-
-									<input type="text" value="'.$row['nome'].'" class="form-control" placeholder="Nome do Pedagogo" required autofocus maxlength="60"  name="name" hidden="1">
-
-                                    <div class="col-md-12 pt-3">
-									Nome:
-									<input type="text" value="'.$row['snome'].'" class="form-control" placeholder="Sobrenome do Pedagogo" required autofocus maxlength="150"  name="snome">
-									</div> 
-
 									<div class="col-md-12 pt-3">
 									Nome:
-									<input type="text" value="'.$row['email'].'" class="form-control" placeholder="E-mail do Pedagogo" required autofocus maxlength="100"  name="email">
+									<input type="text" value="'.$row['nome'].'" class="form-control" placeholder="Nome do Pedagogo" required autofocus maxlength="60"  name="nome">
 									</div>
 
 									<div class="col-md-12 pt-3">
-									Nome:
-									<input type="text" value="'.$row['username'].'" class="form-control" placeholder="Nome de Usuario" required autofocus maxlength="60"  name="username">
+									Sobrenome:
+									<input type="text" value="'.$row['snome'].'" class="form-control" placeholder="Sobrenome" required autofocus maxlength="150"  name="snome">
 									</div>
 
 									<div class="col-md-12 pt-3">
-									Nome:
-									<input type="date" value="'.$row['dtnasc'].'" class="form-control" placeholder="Data de Nascimento do Pedagogo" required autofocus maxlength=" "  name="dtnasc">
+									Sobrenome:
+									<input type="text" value="'.$row['username'].'" class="form-control" placeholder="Nome de Usuário" required autofocus maxlength="60"  name="username">
 									</div>
 
+									<div class="col-md-12 pt-3">
+									E-mail:
+									<input type="email" value="'.$row['email'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="100"  name="email">
+									</div>
+
+									<div class="col-md-12 pt-3">
+									Data de Nascimento:
+									<input type="date" value="'.$row['dtnasc'].'" class="form-control" placeholder="" required autofocus maxlength="100"  name="dtnasc">
+									</div>
 
 									
+									
 
+
+
+								
 
 									</div>
 
@@ -274,14 +277,15 @@
 									</div>
 									<div class="modal-body">
 
-									<h4> Você tem certeza que deseja deletar'.$row ['nome'].' cadastrado(a) como Pedagogo(a) ?
+									<h4> Você tem certeza que deseja deletar o(a) Pedagogo(a)'.$row['nome'].'?  </h4>
 									<h5> A ação não pode ser revertida... </h5>
 									<hr>
-									
+								
+
 									<!-- Colocar Form aqui -->
 									<form class="form-cadastro" action="del.pedagogo.php" method="post" id="formdel">
 
-									<input type="text" value="'.$row['id'].'" class="form-control" placeholder="Nome do Pedagogo" required autofocus maxlength="60"  name="id" hidden="1">					
+									<input type="text" value="'.$row['id'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="id" hidden="1">					
 
 
 
@@ -298,8 +302,6 @@
 									</form>
 
 									<!-- Fim Modal Deletar -->
-
-
 
 
 

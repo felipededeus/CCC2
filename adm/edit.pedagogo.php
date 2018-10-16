@@ -2,7 +2,7 @@
 
 <?php
 
-$Iid = $_POST['id'];
+$id = $_POST['id'];
 
 $nome = $_POST['nome'];
 
@@ -40,7 +40,7 @@ $sql = "UPDATE pedagogo SET nome= :nome, snome= :snome, email= :email, username=
           if($stm->execute()){
             
            $_SESSION ['editresultid'] =  "1" ; // Gera Session se deu certo
-           header('Location: adm.materia.php'); // Manda pra página de onde o user veio
+           header('Location: adm.pedagogo.php'); // Manda pra página de onde o user veio
            exit(); // Para o Script     
 
 
@@ -48,7 +48,7 @@ $sql = "UPDATE pedagogo SET nome= :nome, snome= :snome, email= :email, username=
          } else{
 
           $_SESSION ['editresultid'] =  "0" ; // Gera Session se deu certo
-          header('Location: adm.materia.php'); // Manda pra página de onde o user veio
+          header('Location: adm.pedagogo.php'); // Manda pra página de onde o user veio
           exit(); // Para o Script       
          } 
 

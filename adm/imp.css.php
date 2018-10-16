@@ -1,6 +1,6 @@
 
   <!-- CSS Links -->
-  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="../css/jquery-ui.min.css">
   <link rel="stylesheet" href="../jquery-ui.structure.min.css">
