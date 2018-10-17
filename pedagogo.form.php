@@ -61,9 +61,18 @@ else{
                 <input type="email" class="form-control" placeholder="Email" required autofocus maxlength="100" name="email">
               </div>
               
+
+             
+  
+
+
+
+
+
+
               
               <div class="col-md-12 pt-3">
-                Nome de Usuário:
+                Nome de Usuário:  <span id="name_status"></span>
                 
                 <h5 class=" text-danger alert-danger">
                   <?php if (isset($_SESSION['jaexiste'])){
@@ -92,7 +101,7 @@ else{
                   } ?>
                 </h5>
                 
-                <input type="text" class="form-control" placeholder="Nome para efetuar login no sistema..." required autofocus maxlength="60" name="username">
+                 <input type="text" class="form-control" placeholder="Nome para efetuar login no sistema..." required autofocus maxlength="60" id="UserName" name="username" onkeyup="checkname();">
               </div>
               
               <div class="col-md-12 pt-3">
