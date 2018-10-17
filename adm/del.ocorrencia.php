@@ -10,7 +10,7 @@ $idocorrencias = $_POST['idocorrencias'];
 
 
 
-if (!isset($IDmateria)) {  // Verifica se o usuário pode ter acesso a essa função
+if (!isset($idocorrencias)) {  // Verifica se o usuário pode ter acesso a essa função
 	echo '
            <div class="alert alert-danger" role="alert">
            Erro: Parâmetros Inválidos!
@@ -29,20 +29,20 @@ include '../conexao.class.php';
 
 
 
-$sql = "DELETE FROM materia  WHERE idocorrencias= :idocorrencias"; // Apague da Tabela Materia onde ID materia seja igual a ID materia...
+$sql = "DELETE FROM ocorrencias  WHERE idocorrencias= :idocorrencias"; // Apague da Tabela Materia onde ID materia seja igual a ID materia...
           $stm = Conexao::prepare($sql);
           $stm->bindParam(':idocorrencias', $idocorrencias);          
           if($stm->execute()){
           
           $_SESSION ['delresultid'] =  "1" ; // Gera Session se deu certo
-          header('Location: adm.materia.php'); // Manda pra página de onde o user veio
+          header('Location: adm.ocorrencia.php'); // Manda pra página de onde o user veio
           exit(); // Para o Script   
           
            
            ;
          } else{
           $_SESSION ['delresultid'] =  "0" ; // Gera Session se deu errado
-          header('Location: adm.materia.php'); // Manda pra página de onde o user veio
+          header('Location: adm.ocorrencia.php'); // Manda pra página de onde o user veio
           exit(); // Para o Script              
          } 
        
