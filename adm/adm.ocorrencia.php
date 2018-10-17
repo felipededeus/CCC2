@@ -73,7 +73,7 @@
 							<tr>
 
 								<th>ID</th>
-								<th>Nome Matéria</th>
+								<th>Nome Ocorrência</th>
 								<th>Descrição</th>
 								<th>Ações</th>
 
@@ -184,7 +184,7 @@
 
 
 								include '../conexao.class.php';
-								$sql = "SELECT * FROM materia";
+								$sql = "SELECT * FROM ocorrencias";
 								$stm = conexao::prepare($sql);
 								$stm->execute(); 
 
@@ -192,7 +192,7 @@
 
 
 									echo '<!-- Modal Editar -->
-									<div class="modal fade" id="ModalEdit'.$row['IDmateria'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal fade" id="ModalEdit'.$row['idocorrencias'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 									<div class="modal-dialog" role="document">
 									<div class="modal-content">
 									<div class="modal-header">
@@ -206,18 +206,18 @@
 									<div class="modal-body">
 
 									<!-- Colocar Form aqui -->
-									<form class="form-cadastro" action="edit.materia.php" method="post"  id="formedit">
+									<form class="form-cadastro" action="edit.ocorrencia.php" method="post"  id="formedit">
 
-									<input type="text" value="'.$row['IDmateria'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="IDmateria" hidden="1">
+									<input type="text" value="'.$row['idocorrencias'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="idocorrencias" hidden="1">
 
 
-									<div class="col-md-5 pt-3">
+									<div class="col-md-12 pt-3">
 									Nome:
-									<input type="" value="'.$row['nome'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="nome">
+									<input type="" value="'.$row['nome'].'" class="form-control" placeholder="Nome da Ocorrência" required autofocus maxlength="60"  name="nome">
 									</div>
 
 
-									<div class="col-md-7 pt-3">
+									<div class="col-md-12 pt-3">
 									Descrição:
 									<textarea type="text" class="form-control" placeholder="Descrição" required autofocus name="descr" maxlength="100" >'.$row['descr'].' </textarea>
 									</div>
@@ -237,7 +237,7 @@
 									<!-- Fim Modal Editar -->
 
 									<!-- Modal Deletar -->
-									<div class="modal fade" id="ModalDel'.$row['IDmateria'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal fade" id="ModalDel'.$row['idocorrencias'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 									<div class="modal-dialog" role="document">
 									<div class="modal-content">
 									<div class="modal-header">
@@ -250,15 +250,15 @@
 									</div>
 									<div class="modal-body">
 
-									<h4> Você tem certeza que deseja deletar a Matéria '.$row['nome'].'?
+									<h4> Você tem certeza que deseja deletar a Ocorrência '.$row['nome'].'?
 									<h5> A ação não pode ser revertida... </h5>
 									<hr>
-									<h5> Obs: Só é possível deletar a matéria caso nenhum professor tenha registrado uma ocorrência relacionada a ela, certifique-se de deletar todas as ocorrências relacionadas com a mesma antes.
+									<h5> Obs: Só é possível deletar a ocorrência caso nenhum professor já tenha utilizado ela, certifique-se de deletar todas as ocorrências relacionadas com a mesma antes.
 
 									<!-- Colocar Form aqui -->
-									<form class="form-cadastro" action="del.materia.php" method="post" id="formdel">
+									<form class="form-cadastro" action="del.ocorrencia.php" method="post" id="formdel">
 
-									<input type="text" value="'.$row['IDmateria'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="IDmateria" hidden="1">					
+									<input type="text" value="'.$row['idocorrencias'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="idocorrencias" hidden="1">					
 
 
 
@@ -288,7 +288,7 @@
 
 									echo "
 									<tr> 
-									<td> ".$row['IDmateria']." </td>
+									<td> ".$row['idocorrencias']." </td>
 									<td> ".$row['nome']." </td>
 									<td> ".$row['descr']." </td>
 
@@ -302,13 +302,13 @@
 
 									<td>
 									<!-- Button trigger modal -->
-									<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalEdit'.$row['IDmateria'].'">  <img src="../images/edit.png" width="20px"/>  </div> 
+									<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalEdit'.$row['idocorrencias'].'">  <img src="../images/edit.png" width="20px"/>  </div> 
 									<!-- Fim Button trigger modal -->
 
 									<a href="../materia.form.php" class="btn btn-dacor mt-2"  style="color: #fff;" ">   <img src="../images/add.png" width="20px"/> </div> 
 									<!-- Fim Button trigger modal --></a>
 
-									<div class="btn btn-danger mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalDel'.$row['IDmateria'].'">  <img src="../images/del.png" width="20px"/>  </div> 
+									<div class="btn btn-danger mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalDel'.$row['idocorrencias'].'">  <img src="../images/del.png" width="20px"/>  </div> 
 									<!-- Fim Button trigger modal -->
 
 

@@ -6,7 +6,7 @@ include 'header.template.php';	?> <!-- Importando Header -->
 
 <?php
 
-$IDmateria = $_POST['IDmateria'];
+$idocorrencias = $_POST['idocorrencias'];
 
 
 
@@ -29,9 +29,9 @@ include '../conexao.class.php';
 
 
 
-$sql = "DELETE FROM materia  WHERE IDmateria= :IDmateria"; // Apague da Tabela Materia onde ID materia seja igual a ID materia...
+$sql = "DELETE FROM materia  WHERE idocorrencias= :idocorrencias"; // Apague da Tabela Materia onde ID materia seja igual a ID materia...
           $stm = Conexao::prepare($sql);
-          $stm->bindParam(':IDmateria', $IDmateria);          
+          $stm->bindParam(':idocorrencias', $idocorrencias);          
           if($stm->execute()){
           
           $_SESSION ['delresultid'] =  "1" ; // Gera Session se deu certo

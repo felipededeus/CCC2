@@ -172,7 +172,7 @@ if (!isset($_SESSION['admin'])) {
           </a>
 
           <!-- Button trigger modal -->
-          <a href="adm/adm.cadocorren.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+          <a href="adm/adm.ocorrencia.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
             <img src="images/see.png" width="18px"/> Gerenciar Ocorrências
           </a>
           <!-- Button trigger modal -->
