@@ -12,7 +12,12 @@ $email = $_POST['email'];
 
 $username = $_POST['username'];
 
+$usernameold = $_POST['usernameold'];
+
 $dtnasc = $_POST['dtnasc'];
+
+
+include '../conexao.class.php';
 
 if (!isset($id)) {
 	echo '
@@ -23,7 +28,29 @@ if (!isset($id)) {
            exit();
 }
 
-include '../conexao.class.php';
+
+
+if ($username != $usernameold) {
+   //Verificando se Já existe um user com o mesmo nome cadastrado no sistema
+        
+        $sqli = "SELECT username FROM admin WHERE username= :username UNION SELECT username FROM professor WHERE username= :username UNION SELECT username FROM pedagogo WHERE username= :username";
+        $stmi = Conexao::prepare($sqli);
+        $stmi->bindParam(':username', $username);
+        $stmi->execute();
+
+
+ if ($stmi->rowCount()> 0) {     
+
+    $_SESSION ['jaexiste'] = "Erro[046]: Esse nome de usuário já existe!";  
+    header('Location: adm.pedagogo.php');
+    exit();
+
+  }
+}
+
+
+
+
 $sql = "UPDATE pedagogo SET nome= :nome, snome= :snome, email= :email, username= :username, dtnasc= :dtnasc  WHERE id= :id";
 // Atualize na Tabela Pedagogo definindo nome antigo por nome novo sobrenome antigo por sobrenome novo, e assim sucessivamente,onde id seja igual a id solicitada pelo usuário
 

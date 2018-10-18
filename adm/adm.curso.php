@@ -253,7 +253,7 @@
 									<h4> Você tem certeza que deseja deletar o Curso '.$row['nome'].'?
 									<h5> A ação não pode ser revertida... </h5>
 									<hr>
-									<h5> Obs: Só é possível deletar o curso caso nenhum professor já o tenha utilizado, certifique-se de deletar todas as ocorrências relacionadas com o mesmo antes.
+									<h5> Obs: Só é possível deletar o curso caso nenhum professor já o tenha utilizado, certifique-se de deletar todas as ocorrências relacionadas com o mesmo antes. </h5>
 
 									<!-- Colocar Form aqui -->
 									<form class="form-cadastro" action="del.curso.php" method="post" id="formdel">

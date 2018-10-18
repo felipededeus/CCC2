@@ -214,6 +214,23 @@
 
 									<!-- Colocar Form aqui -->
 									<form class="form-cadastro" action="edit.pedagogo.php" method="post"  id="formedit">
+									<script type="text/javascript">
+             
+             $(document).ready(function () {
+                 //Inicialmente desmarca o CheckBox
+                 $(\'#checkoculta'.$row['id'].'\').removeAttr(\'checked\');
+                 // Inicialmente , oculta o textbox CPF quando o form for carregado
+                 $(\'#oculta'.$row['id'].'\').hide();
+                $(\'#checkoculta'.$row['id'].'\').change(function () {
+                    if (this.checked) {
+                    $(\'#oculta'.$row['id'].'\').show();
+                    }
+                    else {
+                    $(\'#oculta'.$row['id'].'\').hide();
+                   }
+             });
+             });
+    </script>
 
 									<input type="text" value="'.$row['id'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="id" hidden="1">
 
@@ -228,10 +245,7 @@
 									<input type="text" value="'.$row['snome'].'" class="form-control" placeholder="Sobrenome" required autofocus maxlength="150"  name="snome">
 									</div>
 
-									<div class="col-md-12 pt-3">
-									Sobrenome:
-									<input type="text" value="'.$row['username'].'" class="form-control" placeholder="Nome de Usuário" required autofocus maxlength="60"  name="username">
-									</div>
+									
 
 									<div class="col-md-12 pt-3">
 									E-mail:
@@ -241,8 +255,23 @@
 									<div class="col-md-12 pt-3">
 									Data de Nascimento:
 									<input type="date" value="'.$row['dtnasc'].'" class="form-control" placeholder="" required autofocus maxlength="100"  name="dtnasc">
+									<hr>
 									</div>
 
+									<hr>
+
+										<input type="checkbox" class="form" id ="checkoculta'.$row['id'].'" name="checkoculta'.$row['id'].'" value="Bike"> <label for="checkoculta'.$row['id'].'">Alterar Nome de Usuário </label>
+
+									<div id="oculta'.$row['id'].'" class="col-md-12 pt-3">
+
+									<h5> Obs: Ignorar Mensagem de nome de usuário já existente se o user digitado for o atual. O Nome atual é: <strong>'.$row['username'].' </strong> </h5>
+
+
+									Nome de Usuário: <span id="name_status" ></span>
+									<input type="text" class="form-control" placeholder="Nome para efetuar login no sistema..." required autofocus maxlength="60" id="UserName" name="username" onkeyup="checkname();" value="'.$row['username'].'">
+									</div>
+
+										<input type="text" value="'.$row['username'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="usernameold" hidden="1">
 									
 									
 
@@ -363,7 +392,29 @@
 		</div> 
 
 
+<?php if (isset($_SESSION['jaexiste'])){
+                        echo $_SESSION['jaexiste'];
+                        echo "<script>
 
+                  $.notify(\"Erro ao Editar: Nome de Usuário já existe!\", {
+                    type: 'danger',
+
+
+                    animate: {
+
+                      enter: 'animated lightSpeedIn',
+                      exit: 'animated lightSpeedOut'
+                    }
+                    });
+
+
+
+
+                    </script> ";
+                        unset ($_SESSION ['jaexiste']);
+                       
+                        //Avisa que User Já Existe
+                      } ?>
 
 
 	<?php	include '../footer.php';	?> <!-- Importando Rodapé -->

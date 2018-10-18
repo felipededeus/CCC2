@@ -5,3 +5,5 @@
 <script type="text/javascript" src="../js/jquery.mask.min.js"></script>
 <script type="text/javascript" src="../DataTables/datatables.js"></script>
 <script src="../js/bootstrap-notify.min.js"></script> 
+<script src="js/valida.js"></script> 
+
