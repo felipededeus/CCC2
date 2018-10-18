@@ -285,6 +285,28 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
 </div>
 </div>
 
+  <?php if (isset($_SESSION['cadok'])){                        
+                        echo "<script>
+
+                  $.notify(\"informações cadastradas com sucesso!\", {
+                    type: 'success',
+
+
+                    animate: {
+
+                      enter: 'animated lightSpeedIn',
+                      exit: 'animated lightSpeedOut'
+                    }
+                    });
+
+
+
+
+                    </script> ";
+                        unset ($_SESSION ['cadok']);
+                       
+                        //Avisa que deu certo
+                      } ?>
 
 
 

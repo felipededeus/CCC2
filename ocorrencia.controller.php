@@ -92,11 +92,13 @@ $sql = "SELECT idocorrencias FROM ocorrencias";
    <div class="alert alert-success" role="alert">
    Informações Cadastradas!
    </div>
-    \'; }
+    \'; $_SESSION [\'cadok\'] =  "1" ; }
 
                      } '  ;
 
                      eval($fazascoisas); 
+                      
+          
                     
                     $postsverificados = $postsverificados + 1;
 
@@ -111,7 +113,8 @@ $sql = "SELECT idocorrencias FROM ocorrencias";
                        
 
 
-                      
+  header('Location: ocorrencia.form.php'); // Manda pra página de onde o user veio
+           exit(); // Para o Script                          
                      
 
 
