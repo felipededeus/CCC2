@@ -264,14 +264,89 @@
 
 									<div id="oculta'.$row['idadmin'].'" class="col-md-12 pt-3">
 
+									<script>
+
+
+
+
+
+
+
+function checkname'.$row['idadmin'].'()
+{
+ var name=document.getElementById( "UserName'.$row['idadmin'].'" ).value;
+ 
+
+ if(name.length >0)
+ {
+      $.ajax({
+          type: \'post\',
+          url: \'checkdata.php\',
+          data: {
+           username:name,
+          },
+          success: function (response) {
+               
+               $( \'#name_status'.$row['idadmin'].'\' ).html(response);
+
+                
+               if(response=="OK")   
+               {
+                return true; 
+
+
+               }
+               else
+               {
+                return false;  
+
+               }
+          }
+      });
+ }
+ else
+ {
+  $( \'#name_status'.$row['idadmin'].'\' ).html("");
+  return false;
+ }
+
+}
+
+function checkall()
+{
+ var namehtml=document.getElementById("name_status'.$row['idadmin'].'").innerText;
+ alert(namehtml);
+
+ if(namehtml=="OK")
+ {
+  return true;
+ }
+ else
+ {
+  return false;
+ }
+}
+
+
+
+
+
+
+
+
+									</script> 
+
+
 									<h5> Obs: Ignorar Mensagem de nome de usuário já existente se o user digitado for o atual. O Nome atual é: <strong>'.$row['username'].' </strong> </h5>
 
 
-									Nome de Usuário: <span id="name_status" ></span>
-									<input type="text" class="form-control" placeholder="Nome para efetuar login no sistema..." required autofocus maxlength="60" id="UserName" name="username" onkeyup="checkname();" value="'.$row['username'].'">
+									Nome de Usuário: <span id="name_status'.$row['idadmin'].'" ></span>
+									<input type="text" class="form-control" placeholder="Nome para efetuar login no sistema..." required autofocus maxlength="60" id="UserName'.$row['idadmin'].'" name="username" onkeyup="checkname'.$row['idadmin'].'();" value="'.$row['username'].'">
 									</div>
 
 										<input type="text" value="'.$row['username'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="usernameold" hidden="1">
+									
+									
 									
 									
 
