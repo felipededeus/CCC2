@@ -155,7 +155,7 @@ while($rowc=$stmc->fetch(PDO::FETCH_ASSOC)){
 	<?php
 	$dt = new DateTime();
 
-	echo ' Pré Conselho: '. $datai->format('Y').' | '. $datai->format('d-m-Y').' – Até - '. $dataf->format('d-m-Y').' |  Professor: '.$professor.' | Matéria: '.$nmateria.'  <br>Turma: '.$nometurma.' | Curso: '.$nomecurso.' <br> Relatório Gerado em '.$dt->format('d/m/Y H:i').' ';
+	echo ' <hr> <h3>Pré Conselho '. $datai->format('Y').' <small class="text-muted">( '.  $datai->format('d-m-Y').' – Até - '. $dataf->format('d-m-Y').')</small>  </h3> <hr>  Professor: '.$professor.' | Matéria: '.$nmateria.'  <br>Turma: '.$nometurma.' | Curso: '.$nomecurso.' <br> Relatório Gerado em '.$dt->format('d/m/Y H:i').' ';
 	?>
 
 	<hr>
@@ -198,7 +198,7 @@ while($rowc=$stmc->fetch(PDO::FETCH_ASSOC)){
 		INNER JOIN ocorrencias ON idocorrencias = ocorrencias_idocorrencias
 		INNER JOIN cursos ON cursos.id = cursos_id
 		INNER JOIN materia ON IDmateria = materia_IDmateria  
-		WHERE professor.id = :idprofessor AND conselho.classe_idclasse = :idclasse AND conselho.materia_IDmateria = :idmateria AND conselho.datareg BETWEEN :dataini AND :datafim
+		WHERE conselho.cursos_id = :cursos_id AND professor.id = :idprofessor AND conselho.classe_idclasse = :idclasse AND conselho.materia_IDmateria = :idmateria AND conselho.datareg BETWEEN :dataini AND :datafim
 		GROUP BY conselho.aluno_idaluno
 		ORDER BY conselho.numaluno ASC ";
 
@@ -207,6 +207,7 @@ while($rowc=$stmc->fetch(PDO::FETCH_ASSOC)){
 		$stm->bindParam(':idprofessor', $idprofessor);
 		$stm->bindParam(':idmateria', $idmateria);
 		$stm->bindParam(':idclasse', $idclasse);
+		$stm->bindParam(':cursos_id', $cursosid);
 		$stm->bindParam(':dataini', $dataini);
 		$stm->bindParam(':datafim', $datafim);
 		$stm->execute(); 
@@ -243,7 +244,7 @@ while($rowc=$stmc->fetch(PDO::FETCH_ASSOC)){
 			INNER JOIN ocorrencias ON idocorrencias = ocorrencias_idocorrencias
 			INNER JOIN cursos ON cursos.id = cursos_id
 			INNER JOIN materia ON IDmateria = materia_IDmateria  
-			WHERE professor.id = :idprofessor AND conselho.materia_IDmateria = :idmateria AND  conselho.classe_idclasse = :idclasse AND conselho.aluno_idaluno = :idaluno AND conselho.datareg  BETWEEN :dataini AND :datafim 
+			WHERE conselho.cursos_id = :cursos_id AND professor.id = :idprofessor AND conselho.materia_IDmateria = :idmateria AND  conselho.classe_idclasse = :idclasse AND conselho.aluno_idaluno = :idaluno AND conselho.datareg  BETWEEN :dataini AND :datafim 
 			GROUP BY conselho.ocorrencias_idocorrencias			";
 
            // Executa a Query 
@@ -251,6 +252,7 @@ while($rowc=$stmc->fetch(PDO::FETCH_ASSOC)){
 			$stm2->bindParam(':idprofessor', $idprofessor);
 			$stm2->bindParam(':idmateria', $idmateria);
 			$stm2->bindParam(':idclasse', $idclasse);
+			$stm2->bindParam(':cursos_id', $cursosid);
 			$stm2->bindParam(':dataini', $dataini);
 			$stm2->bindParam(':datafim', $datafim);
 			$stm2->bindParam(':idaluno', $idaluno);

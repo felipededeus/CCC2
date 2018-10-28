@@ -37,7 +37,7 @@ if (!isset($_SESSION['admin'])) {
 
 
  
-.quebra { page-break-after:always;
+.quebra { page-break-before:always;
   
 } 
             </style>
@@ -56,12 +56,27 @@ if (!isset($_SESSION['admin'])) {
 <div id="noprint">
   <br>
   <center>
-<form><input type="button" name="imprimir" class="btn btn-lg" value="Imprimir" onclick="window.print();">
+<form><input type="button" name="imprimir" class="btn btn-lg btn-success" style="width: 100%;" value="Imprimir" onclick="window.print();">
+<br>
 <br>
 
 
+<?php 
+ 
+ if ($_POST['quebrar'] == 'sim') {
+
+     echo '<div class="alert alert-danger" role="alert"><strong>Atenção:</strong> Cada Relatório será impresso em uma folha separada!</div> ';
+    } 
 
 
+
+ ?>
+
+
+
+</form>
+</center>
+</div>
 
 
 
@@ -228,15 +243,15 @@ while($rowp=$stmp->fetch(PDO::FETCH_ASSOC)){
     $datai = $dt;
     $dataf =$dt;
     
-    if ($_POST['quebrar'] = 'sim') {
+    
+    if ($_POST['quebrar'] == 'sim') {
 
-     echo '<div class="quebran"></div> ';
-
-    }
-
+     echo '<div class="quebra"></div> ';
+    } 
 
 
-  echo '<div class="quebran"></div> <hr> <h3>Pré Conselho '. $datai->format('Y').' <small class="text-muted">( '.  $datai->format('d-m-Y').' – Até - '. $dataf->format('d-m-Y').') </small>  </h3><h4> '.$nometurma.'</h4>  Professor: <strong> '.$professor.' </strong>| Matéria: <strong>  '.$nmateria.'</strong> | Curso: <strong>  '.$nomecurso.'</strong> <br> Relatório Gerado em '.$dt->format('d/m/Y H:i').' <hr>';
+
+  echo ' <hr> <h3>Pré Conselho '. $datai->format('Y').' <small class="text-muted">( '.  $datai->format('d-m-Y').' – Até - '. $dataf->format('d-m-Y').') </small>  </h3><h4> '.$nometurma.'</h4>  Professor: <strong> '.$professor.' </strong>| Matéria: <strong>  '.$nmateria.'</strong> | Curso: <strong>  '.$nomecurso.'</strong> <br> Relatório Gerado em '.$dt->format('d/m/Y H:i').' <hr>';
 
 
 
