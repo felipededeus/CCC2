@@ -124,6 +124,12 @@ if (!isset($_SESSION['admin'])) {
             Relatório por Turma
           </a>
 
+           <!-- Button trigger modal -->
+          <a href="sol.rel.geral.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">            
+            
+             Relatório Geral
+          </a>
+
          
       </div>
         

@@ -305,7 +305,7 @@
 									<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalEdit'.$row['idocorrencias'].'">  <img src="../images/edit.png" width="20px"/>  </div> 
 									<!-- Fim Button trigger modal -->
 
-									<a href="../materia.form.php" class="btn btn-dacor mt-2"  style="color: #fff;" ">   <img src="../images/add.png" width="20px"/> </div> 
+									<a href="../cadocorren.form.php" class="btn btn-dacor mt-2"  style="color: #fff;" ">   <img src="../images/add.png" width="20px"/> </div> 
 									<!-- Fim Button trigger modal --></a>
 
 									<div class="btn btn-danger mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalDel'.$row['idocorrencias'].'">  <img src="../images/del.png" width="20px"/>  </div> 

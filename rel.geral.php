@@ -63,11 +63,14 @@ if (!isset($_SESSION['admin'])) {
 
 <?php 
  
+ if (isset($_POST['quebrar'])) {
+   # code...
+ 
  if ($_POST['quebrar'] == 'sim') {
 
      echo '<div class="alert alert-danger" role="alert"><strong>Atenção:</strong> Cada Relatório será impresso em uma folha separada!</div> ';
     } 
-
+}
 
 
  ?>
@@ -83,13 +86,18 @@ if (!isset($_SESSION['admin'])) {
 
 
 <?php 
+
+$dataini = $_POST['dataini'];
+$datafim = $_POST['datafim'];
  
 include "conexao.class.php";
 
-$sqlcursos = "SELECT cursos_id FROM conselho GROUP BY conselho.cursos_id";
+$sqlcursos = "SELECT cursos_id FROM conselho  WHERE conselho.datareg BETWEEN :dataini AND :datafim GROUP BY conselho.cursos_id";
 // Executa a Query 
 //Pega todas os Cursos
     $stmcursos = conexao::prepare($sqlcursos);   
+    $stmcursos->bindParam(':dataini', $dataini);
+    $stmcursos->bindParam(':datafim', $datafim);
     $stmcursos->execute(); 
 
 
@@ -98,33 +106,39 @@ $sqlcursos = "SELECT cursos_id FROM conselho GROUP BY conselho.cursos_id";
 
 
 
-$sqlturma = "SELECT classe_idclasse FROM conselho WHERE conselho.cursos_id = :cursos_id GROUP BY conselho.classe_idclasse";
+$sqlturma = "SELECT classe_idclasse FROM conselho WHERE conselho.cursos_id = :cursos_id AND conselho.datareg BETWEEN :dataini AND :datafim GROUP BY conselho.classe_idclasse";
 // Executa a Query 
 //Pega todas as Turmas
     $stmturma = conexao::prepare($sqlturma);  
     $stmturma->bindParam(':cursos_id', $rowcursos['cursos_id']); 
+    $stmturma->bindParam(':dataini', $dataini);
+    $stmturma->bindParam(':datafim', $datafim);
     $stmturma->execute(); 
 
 
     while($rowturma=$stmturma->fetch(PDO::FETCH_ASSOC)){
 
-      $sqlmateria = "SELECT materia_IDmateria FROM conselho WHERE conselho.cursos_id = :cursos_id AND conselho.classe_idclasse = :classe_idclasse GROUP BY conselho.materia_IDmateria";
+      $sqlmateria = "SELECT materia_IDmateria FROM conselho WHERE conselho.cursos_id = :cursos_id AND conselho.classe_idclasse = :classe_idclasse AND conselho.datareg BETWEEN :dataini AND :datafim GROUP BY conselho.materia_IDmateria";
 // Executa a Query 
 //Pega todas matérias            
     $stmmateria = conexao::prepare($sqlmateria); 
     $stmmateria->bindParam(':cursos_id', $rowcursos['cursos_id']);   
     $stmmateria->bindParam(':classe_idclasse', $rowturma['classe_idclasse']);   
+    $stmmateria->bindParam(':dataini', $dataini);
+    $stmmateria->bindParam(':datafim', $datafim);
     $stmmateria->execute(); 
 
 
     while($rowmateria=$stmmateria->fetch(PDO::FETCH_ASSOC)){
 
-      $sqlprofessor = "SELECT professor_id FROM conselho WHERE conselho.cursos_id = :cursos_id AND conselho.classe_idclasse = :classe_idclasse AND conselho.materia_IDmateria = :IDmateria  GROUP BY conselho.professor_id";
+      $sqlprofessor = "SELECT professor_id FROM conselho WHERE conselho.cursos_id = :cursos_id AND conselho.classe_idclasse = :classe_idclasse AND conselho.materia_IDmateria = :IDmateria AND conselho.datareg BETWEEN :dataini AND :datafim GROUP BY conselho.professor_id";
 // Executa a Query 
     $stmprofessor = conexao::prepare($sqlprofessor);   
     $stmprofessor->bindParam(':cursos_id', $rowcursos['cursos_id']);   
     $stmprofessor->bindParam(':classe_idclasse', $rowturma['classe_idclasse']);  
-    $stmprofessor->bindParam(':IDmateria', $rowmateria['materia_IDmateria']);  
+    $stmprofessor->bindParam(':IDmateria', $rowmateria['materia_IDmateria']); 
+    $stmprofessor->bindParam(':dataini', $dataini);
+    $stmprofessor->bindParam(':datafim', $datafim);
     $stmprofessor->execute(); 
 
 
@@ -243,13 +257,14 @@ while($rowp=$stmp->fetch(PDO::FETCH_ASSOC)){
     $datai = $dt;
     $dataf =$dt;
     
-    
+     if (isset($_POST['quebrar'])) {
+   # code...
     if ($_POST['quebrar'] == 'sim') {
 
      echo '<div class="quebra"></div> ';
     } 
 
-
+}
 
   echo ' <hr> <h3>Pré Conselho '. $datai->format('Y').' <small class="text-muted">( '.  $datai->format('d-m-Y').' – Até - '. $dataf->format('d-m-Y').') </small>  </h3><h4> '.$nometurma.'</h4>  Professor: <strong> '.$professor.' </strong>| Matéria: <strong>  '.$nmateria.'</strong> | Curso: <strong>  '.$nomecurso.'</strong> <br> Relatório Gerado em '.$dt->format('d/m/Y H:i').' <hr>';
 
@@ -278,8 +293,7 @@ while($rowp=$stmp->fetch(PDO::FETCH_ASSOC)){
 
 $idmateria = $rowmateria['materia_IDmateria'];
 $idclasse = $rowturma['classe_idclasse'];
-$dataini = $_POST['dataini'];
-$datafim = $_POST['datafim'];
+
 $cursosid = $rowcursos['cursos_id'];
 
 $sql = "SELECT conselho.* ,
