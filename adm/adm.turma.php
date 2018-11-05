@@ -28,18 +28,18 @@ else{
 <body>
 
 
- <?php  include 'imp.java.php';  ?> <!-- Importando Scripts -->
+	<?php  include 'imp.java.php';  ?> <!-- Importando Scripts -->
 
-<script type="text/javascript">
-	
-	
+	<script type="text/javascript">
+		
+		
 
 
 
-	$('#formedit').submit(function(e) {
-		var dados = jQuery( this ).serialize();
-		e.preventDefault();
-		$.ajax({
+		$('#formedit').submit(function(e) {
+			var dados = jQuery( this ).serialize();
+			e.preventDefault();
+			$.ajax({
         url: 'edit.turma.php', // caminho para o script que vai processar os dados
         type: 'POST',
         data: { dados:dados, },
@@ -50,15 +50,15 @@ else{
         	alert(xhr.responseText);
         }
     });
-		return false;
-	}); 
+			return false;
+		}); 
 
 
 
-	$('#formdel').submit(function(e) {
-		var dados = jQuery( this ).serialize();
-		e.preventDefault();
-		$.ajax({
+		$('#formdel').submit(function(e) {
+			var dados = jQuery( this ).serialize();
+			e.preventDefault();
+			$.ajax({
         url: 'del.curso.php', // caminho para o script que vai processar os dados
         type: 'POST',
         data: { dados:dados, },
@@ -69,13 +69,13 @@ else{
         	alert(xhr.responseText);
         }
     });
-		return false;
-	}); 
+			return false;
+		}); 
 
 
 
 
-</script>
+	</script>
 
 	<div class="container-fluid bgnav">
 		<?php	include 'nav.php';	?> <!-- Importando Barra de Navegação -->
@@ -87,100 +87,198 @@ else{
 
 			<!-- Inicio Card -->
 			<?php if (isset($_SESSION['admin'])) {
-		echo '
-			<div class="" style="width: 100%;">
+				echo '
+				<div class="" style="width: 100%;">
 				
 				<div class="card-body">
-					
-										<center>
-					<a href="../turma.form.php" class="btn btn-dacor m-1" style="width: 100%;"><img src="../images/edit.png" width="20px" /> Cadastrar Nova Turma</a>
+				
+				<center>
+				<a href="../turma.form.php" class="btn btn-dacor m-1" style="width: 100%;"><img src="../images/edit.png" width="20px" /> Cadastrar Nova Turma</a>
 				</center>
 				</div>
-			</div> ';}
-			?>
-			<!--Fim Card-->
+				</div> ';}
+				?>
+				<!--Fim Card-->
+
+				
+
+
+				<div class="card-columns cards" > <center>
+
+					
+
+
+					<?php
+
+					include "../conexao.class.php";
+					$sql = "SELECT * FROM classe";
+					$stm = conexao::prepare($sql);
+					$stm->execute();  
+					$matu = 1;
+					$vesp = 2;
+					$notu = 3;
+					$contra = 4;  
+
+					
+
+					while($row=$stm->fetch(PDO::FETCH_ASSOC)){
+						if ($row['periestu'] == $matu) {
+							$periestu = "Matutino";
+						}
+
+						if ($row['periestu'] == $vesp) {
+							$periestu = "Vespertino";
+						}
+
+						if ($row['periestu'] == $notu) {
+							$periestu = "Noturno";
+						}
+
+						if ($row['periestu'] == $contra) {
+							$periestu = "Contraturno";
+						}
+
+						echo '
+
+						<!-- Modal Editar -->
+						<div class="modal fade" id="ModalEdit'.$row['idclasse'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+						<div class="modal-content">
+						<div class="modal-header">
+						<h4>
+						Editar:
+						</h4> 
+						<hr>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Cancelar"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel"> </h4>
+						</div>
+						<div class="modal-body">
+
+						<!-- Colocar Form aqui -->
+						<form class="form-cadastro" action="edit.turma.php" method="post"  id="formedit">
+
+						<input type="text" value="'.$row['idclasse'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="IDmateria" hidden="1">
+
+						<div class="col-md-7 pt-3">
+						Período Estudantil:
+						<select class="form-control form-control-lg" name="periestu">
+						<option value="1">Matutino</option>
+						<option value="2">Vespertino</option>
+						<option value="3">Noturno</option>
+						<option value="4">Contraturno</option>
+						</select> 
+						</div>
+
+
+						<div class="col-md-5 pt-3">
+						Nome:
+						<input type="text" value="'.$row['nome'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="nome">
+						</div>
+
+
+						<div class="col-md-7 pt-3">
+						Descrição:
+						<textarea type="text" class="form-control" placeholder="Descrição" required autofocus name="descr" maxlength="100" >'.$row['descr'].' </textarea>
+						</div>
+
+
+						</div>
+
+						<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<button class="btn btn-danger" type="submit"><img src="../images/edit.png" width="15px"/> Alterar</button>            
+						</div>
+						</div>
+						</div>
+						</div>
+						</form>
+
+						<!-- Fim Modal Editar -->
+
+						<!-- Modal Deletar -->
+						<div class="modal fade" id="ModalDel'.$row['idclasse'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+						<div class="modal-content">
+						<div class="modal-header">
+						<h4>
+						Deletar:
+						</h4> 
+						<hr>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Cancelar"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel"> </h4>
+						</div>
+						<div class="modal-body">
+
+						<h4> Você tem certeza que deseja deletar a turma '.$row['numero'] .$row['letra'].'?
+						<h5> A ação não pode ser revertida... </h5>
+						<hr>
+						<h5> Obs: Só é possível deletar a matéria caso nenhum professor tenha registrado uma ocorrência relacionada a ela, certifique-se de deletar todas as ocorrências relacionadas com a mesma antes. </h5>
+
+						<!-- Colocar Form aqui -->
+						<form class="form-cadastro" action="del.turma.php" method="post" id="formdel">
+
+						<input type="text" value="'.$row['idclasse'].'" class="form-control" placeholder=" " required autofocus maxlength="60"  name="idclasse" hidden="1">					
+
+
+
+
+						</div>
+
+						<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<button class="btn btn-danger" type="submit"><img src="../images/del.png" width="15px"/> Deletar</button>            
+						</div>
+						</div>
+						</div>
+						</div>
+						</form>
+
+						<!-- Fim Modal Deletar -->
+
+						<!-- Inicio Card-->
+						<div class="card cardbg" style="width: 18rem;">
+						<img class="m-1" src="../images/class.png" alt="Card image cap" width="140px;">
+						<div class="card-body">
+						
+						<p class="card-text">'.$row['numero'] .$row['letra'].'</p>
+						<h5 class="btn-dacor p-1">'.$periestu.'</h5>
+						<center>
+						
+
+						<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalDel'.$row['idclasse'].'"><img src="../images/edit.png" width="20px" /></div>
+						<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalDel'.$row['idclasse'].'"><img src="../images/del.png" width="20px" /></div>
+						</center>
+						</div>
+						</div>
+
+
+						<!-- Fim Card-->
+
+
+
+
+
+
+
+						';
+        //print_r($row); 
+					}
+					?>
+				</center>
+
+
+
+			</div> <!-- /card-deck-->
+
+
+
+		</div> <!-- /jumbotron-->
+
+
+
+		<?php	include '../footer.php';	?> <!-- Importando Rodapé -->
 
 		
-
-
-		<div class="card-columns cards" > <center>
-
-			
-
-
-			<?php
-
-			include "../conexao.class.php";
-			$sql = "SELECT * FROM classe";
-			$stm = conexao::prepare($sql);
-			$stm->execute();  
-			$matu = 1;
-			$vesp = 2;
-			$notu = 3;
-			$contra = 4;  
-
-			
-
-			while($row=$stm->fetch(PDO::FETCH_ASSOC)){
-				if ($row['periestu'] == $matu) {
-					$periestu = "Matutino";
-				}
-
-				if ($row['periestu'] == $vesp) {
-					$periestu = "Vespertino";
-				}
-
-				if ($row['periestu'] == $notu) {
-					$periestu = "Noturno";
-				}
-
-				if ($row['periestu'] == $contra) {
-					$periestu = "Contraturno";
-				}
-
-				echo ' 
-
-				<!-- Inicio Card-->
-				<div class="card cardbg" style="width: 18rem;">
-				<img class="m-1" src="../images/class.png" alt="Card image cap" width="140px;">
-				<div class="card-body">
-				
-				<p class="card-text">'.$row['numero'] .$row['letra'].'</p>
-				<h5 class="btn-dacor p-1">'.$periestu.'</h5>
-				<center>
-				
-
-				<a href="#" class="btn btn-dacor m-1"><img src="../images/edit.png" width="20px" /></a>
-				<a href="#" class="btn btn-dacor m-1"><img src="../images/del.png" width="20px" /></a>
-				</center>
-				</div>
-				</div>
-				<!-- Fim Card-->
-
-
-
-
-
-
-				';
-        //print_r($row); 
-			}
-			?>
- </center>
-
-
-
-		</div> <!-- /card-deck-->
-
-
-
-	</div> <!-- /jumbotron-->
-
-
-
-	<?php	include '../footer.php';	?> <!-- Importando Rodapé -->
-
-	
-</body>
-</html> 
+	</body>
+	</html> 
 

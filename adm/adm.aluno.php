@@ -217,48 +217,48 @@
 									<input type="text" value="'.$row['idaluno'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="idaluno" hidden="1">
 
 
-									<div class="col-md-2 pt-3">
+									<div class="col-md-12 pt-3">
 									Nome:
 									<input type="text" value="'.$row['nome'].'" class="form-control" placeholder="Nome do Aluno" required autofocus maxlength="60"  name="nome">
 									</div>
 
-									<div class="col-md-2 pt-3">
-									Nome:
+									<div class="col-md-12 pt-3">
+									Sobrenome:
 									<input type="text" value="'.$row['snome'].'" class="form-control" placeholder="Sobrenome do Aluno" required autofocus maxlength="150"  name="snome">
 									</div>
 
-									<div class="col-md-2 pt-3">
-									Nome:
+									<div class="col-md-12 pt-3">
+									Nome de Reponsável:
 									<input type="text" value="'.$row['nomeresp'].'" class="form-control" placeholder="Nome do Reponsável" required autofocus maxlength="220"  name="nomeresp">
 									</div>
 
-									<div class="col-md-1 pt-3">
-									Nome:
+									<div class="col-md-12 pt-3">
+									Telefone de Reponsavel:
 									<input type="text" value="'.$row['teleresp'].'" class="form-control" placeholder="Telefone do Reponsável" required autofocus maxlength="12"  name="teleresp">
 									</div>
 
-									<div class="col-md-1 pt-3">
-									Nome:
+									<div class="col-md-12 pt-3">
+									data de nascimento:
 									<input type="date" value="'.$row['dtnasc'].'" class="form-control" placeholder="Data de nascimento do Aluno" required autofocus maxlength="60"  name="dtnasc">
 									</div>
 
-									<div class="col-md-1 pt-3">
-									Nome:
+									<div class="col-md-12 pt-3">
+									Sexo:
 									<input type="text" value="'.$row['sexo'].'" class="form-control" placeholder="Sexo do Aluno" required autofocus maxlength="11"  name="sexo">
 									</div>
 
-									<div class="col-md-1 pt-3">
-									Nome:
+									<div class="col-md-12 pt-3">
+									Matrícula Escolar:
 									<input type="text" value="'.$row['matriescol'].'" class="form-control" placeholder="Matrícula Escolar" required autofocus maxlength="11"  name="matriescol">
 									</div>
 
-									<div class="col-md-1 pt-3">
-									Nome:
+									<div class="col-md-12 pt-3">
+									E-mail de Reponsável:
 									<input type="text" value="'.$row['emailresp'].'" class="form-control" placeholder="E-mail do Reponsável" required autofocus maxlength="100"  name="emailresp">
 									</div>
 
-									<div class="col-md-1 pt-3">
-									Nome:
+									<div class="col-md-12 pt-3">
+									Cadastro Geral de Matricula:
 									<input type="text" value="'.$row['cgm'].'" class="form-control" placeholder="Cadastro Geral de Matricula" required autofocus maxlength="8"  name="cgm">
 									</div>
 

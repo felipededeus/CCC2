@@ -2,27 +2,16 @@
 
 <?php
 
-$idaluno = $_POST['idaluno'];
+$idclasse = $_POST['idclasse'];
 
-$nome = $_POST['nome'];
+$letra = $_POST['letra'];
 
-$snome = $_POST['snome'];
+$numero = $_POST['numero'];
 
-$nomeresp = $_POST['nomeresp'];
+$periestu = $_POST['periestu'];
 
-$teleresp = $_POST['teleresp'];
 
-$dtnasc = $_POST['dtnasc'];
-
-$sexo = $_POST['sexo'];
-
-$matriescol = $_POST['matriescol'];
-
-$emailresp = $_POST['emailresp'];
-
-$cgm = $_POST['cgm'];
-
-if (!isset($idaluno)) {
+if (!isset($idclasse)) {
 	echo '
            <div class="alert alert-danger" role="alert">
            Erro: Parâmetros Inválidos!
