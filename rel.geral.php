@@ -254,8 +254,8 @@ while($rowp=$stmp->fetch(PDO::FETCH_ASSOC)){
 
 
     $dt = new DateTime();
-    $datai = $dt;
-    $dataf =$dt;
+    $datai = new DateTime($dataini);
+    $dataf = new DateTime($datafim);
     
      if (isset($_POST['quebrar'])) {
    # code...
