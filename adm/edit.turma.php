@@ -21,8 +21,8 @@ if (!isset($idclasse)) {
 }
 
 include '../conexao.class.php';
-$sql = "UPDATE aluno SET idclasse = :idclasse, letra = :letra, numero= :numero, periestu= :periestu";
-// Atualize na Tabela aluno definindo nome antigo por nome novo e assim Sucessivamente onde idaluno seja igual a idaluno solicitada pelo usuário
+$sql = "UPDATE classe SET letra = :letra, numero= :numero, periestu= :periestu WHERE idclasse = :idclasse";
+
 
           $stm = Conexao::prepare($sql);
           $stm->bindParam(':idclasse', $idclasse);

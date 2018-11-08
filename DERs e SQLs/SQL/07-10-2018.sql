@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `ccc`.`aluno` (
   `nome` VARCHAR(60) NOT NULL,
   `snome` VARCHAR(150) NOT NULL,
   `nomeresp` VARCHAR(220) NOT NULL,
-  `teleresp` INT(12) NOT NULL,
+  `teleresp` VARCHAR(17) NOT NULL,
   `dtnasc` DATE NOT NULL,
   `sexo` INT NULL,
   `matriescol` INT(11) NULL,

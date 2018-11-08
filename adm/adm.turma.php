@@ -31,8 +31,8 @@ else{
 	<?php  include 'imp.java.php';  ?> <!-- Importando Scripts -->
 
 	<script type="text/javascript">
-		
-		
+
+
 
 
 
@@ -91,7 +91,7 @@ else{
 				<div class="" style="width: 100%;">
 				
 				<div class="card-body">
-				
+
 				<center>
 				<a href="../turma.form.php" class="btn btn-dacor m-1" style="width: 100%;"><img src="../images/edit.png" width="20px" /> Cadastrar Nova Turma</a>
 				</center>
@@ -100,12 +100,12 @@ else{
 				?>
 				<!--Fim Card-->
 
-				
+
 
 
 				<div class="card-columns cards" > <center>
 
-					
+
 
 
 					<?php
@@ -119,7 +119,7 @@ else{
 					$notu = 3;
 					$contra = 4;  
 
-					
+
 
 					while($row=$stm->fetch(PDO::FETCH_ASSOC)){
 						if ($row['periestu'] == $matu) {
@@ -157,29 +157,101 @@ else{
 						<!-- Colocar Form aqui -->
 						<form class="form-cadastro" action="edit.turma.php" method="post"  id="formedit">
 
-						<input type="text" value="'.$row['idclasse'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="IDmateria" hidden="1">
+						<input type="text" value="'.$row['idclasse'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="IDmateria" hidden="1">';
+						$periestuedit = $row['periestu'];
 
-						<div class="col-md-7 pt-3">
-						Período Estudantil:
+						switch ($periestuedit) {
+    case 1:
+       echo '
+
+						<div class="col-md-12 pt-3">
+						Período Etudantil:
 						<select class="form-control form-control-lg" name="periestu">
-						<option value="1">Matutino</option>
+						<option value="1" selected>Matutino</option>
 						<option value="2">Vespertino</option>
 						<option value="3">Noturno</option>
 						<option value="4">Contraturno</option>
 						</select> 
-						</div>
+						</div> ';
+						break;
+
+    case 2:
+       echo '
+
+						<div class="col-md-12 pt-3">
+						Período Etudantil:
+						<select class="form-control form-control-lg" name="periestu">
+						<option value="1">Matutino</option>
+						<option value="2" selected>Vespertino</option>
+						<option value="3">Noturno</option>
+						<option value="4">Contraturno</option>
+						</select> 
+						</div> ';
+						break;
+
+    case 3:
+       echo '
+
+						<div class="col-md-12 pt-3">
+						Período Etudantil:
+						<select class="form-control form-control-lg" name="periestu">
+						<option value="1">Matutino</option>
+						<option value="2">Vespertino</option>
+						<option value="3" selected>Noturno</option>
+						<option value="4">Contraturno</option>
+						</select> 
+						</div> ';
+						break;
+
+    case 4:
+       echo '
+
+						<div class="col-md-12 pt-3">
+						Período Etudantil:
+						<select class="form-control form-control-lg" name="periestu">
+						<option value="1">Matutino</option>
+						<option value="2">Vespertino</option>
+						<option value="3">Noturno</option>
+						<option value="4" selected>Contraturno</option>
+						</select> 
+						</div> ';
+						break;
+
+       
 
 
-						<div class="col-md-5 pt-3">
-						Nome:
-						<input type="text" value="'.$row['nome'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="nome">
-						</div>
+
+}
 
 
-						<div class="col-md-7 pt-3">
-						Descrição:
-						<textarea type="text" class="form-control" placeholder="Descrição" required autofocus name="descr" maxlength="100" >'.$row['descr'].' </textarea>
-						</div>
+
+
+						echo '
+
+
+						 <div class="col-md-6 pt-3">
+        Número:
+                <input type="number" class="form-control" max="99" placeholder="Número da Turma" required autofocus name="numero"  value="'.$row['numero'].'">
+        </div>
+                
+                <div class="col-md-6 pt-3">
+				Letra:
+                <input type="text" class="form-control" maxlength="2"  placeholder="Letra da Turma" onblur="evento(this);" value="'.$row['letra'].'" required autofocus name="letra"/>
+
+                <input type="text" class="form-control"   placeholder="Letra da Turma" hidden value="'.$row['idclasse'].'" required autofocus name="idclasse"/>
+
+                </div>
+
+
+                <script type="text/javascript">
+
+function evento(obj) {
+  obj.value = obj.value.toUpperCase();
+}
+
+</script>
+
+                
 
 
 						</div>
@@ -212,7 +284,7 @@ else{
 						<h4> Você tem certeza que deseja deletar a turma '.$row['numero'] .$row['letra'].'?
 						<h5> A ação não pode ser revertida... </h5>
 						<hr>
-						<h5> Obs: Só é possível deletar a matéria caso nenhum professor tenha registrado uma ocorrência relacionada a ela, certifique-se de deletar todas as ocorrências relacionadas com a mesma antes. </h5>
+						<h5> Obs: Só é possível deletar a turma caso nenhum professor tenha registrado uma ocorrência relacionada a ela, certifique-se de deletar todas as ocorrências relacionadas com a mesma antes. </h5>
 
 						<!-- Colocar Form aqui -->
 						<form class="form-cadastro" action="del.turma.php" method="post" id="formdel">
@@ -239,13 +311,13 @@ else{
 						<div class="card cardbg" style="width: 18rem;">
 						<img class="m-1" src="../images/class.png" alt="Card image cap" width="140px;">
 						<div class="card-body">
-						
+
 						<p class="card-text">'.$row['numero'] .$row['letra'].'</p>
 						<h5 class="btn-dacor p-1">'.$periestu.'</h5>
 						<center>
-						
 
-						<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalDel'.$row['idclasse'].'"><img src="../images/edit.png" width="20px" /></div>
+
+						<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalEdit'.$row['idclasse'].'"><img src="../images/edit.png" width="20px" /></div>
 						<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalDel'.$row['idclasse'].'"><img src="../images/del.png" width="20px" /></div>
 						</center>
 						</div>
@@ -276,9 +348,115 @@ else{
 
 
 
-		<?php	include '../footer.php';	?> <!-- Importando Rodapé -->
+		<?php	include '../footer.php';
 
-		
+
+
+
+							if (isset($_SESSION['editresultid'])) {
+								
+
+								if ($_SESSION['editresultid'] == 1){
+									echo "<script>
+
+									$.notify(\"Atualizações realizadas com sucesso!\", {
+										type: 'success',
+
+
+										animate: {
+
+											enter: 'animated lightSpeedIn',
+											exit: 'animated lightSpeedOut'
+										}
+										});
+
+
+
+
+										</script> ";
+										unset ($_SESSION ['editresultid']);
+									}
+								}
+
+								if (isset($_SESSION['editresultid'])) {
+									if ($_SESSION['editresultid'] == 0){
+										echo "<script>
+										$.notify(\"Um erro ocorreu durante a atualização...\", {
+											type: 'danger',
+										//showProgressbar: true,
+
+
+											animate: {
+
+												enter: 'animated lightSpeedIn',
+												exit: 'animated lightSpeedOut'
+											}
+										}); ";
+										unset ($_SESSION ['editresultid']);
+									}
+								}
+
+
+
+
+
+
+								if (isset($_SESSION['delresultid'])) {
+								
+
+								if ($_SESSION['delresultid'] == 1){
+									echo "<script>
+
+									$.notify(\"Informações deletadas com sucesso!\", {
+										type: 'success',
+
+
+										animate: {
+
+											enter: 'animated lightSpeedIn',
+											exit: 'animated lightSpeedOut'
+										}
+										});
+
+
+
+
+										</script> ";
+										unset ($_SESSION ['delresultid']);
+									}
+								}
+
+								if (isset($_SESSION['delresultid'])) {
+									if ($_SESSION['delresultid'] == 0){
+										echo "<script>
+										$.notify(\"Um erro ocorreu ao tentar deletar as informações: Verifique se as mesmas não estão sendo utilizadas.\", {
+											type: 'danger',
+										//showProgressbar: true,
+
+
+											animate: {
+
+												enter: 'animated lightSpeedIn',
+												exit: 'animated lightSpeedOut'
+											}
+										}); ";
+										unset ($_SESSION ['delresultid']);
+									}
+								}
+
+
+
+
+
+
+
+
+
+
+
+			?> <!-- Importando Rodapé -->
+
+
 	</body>
 	</html> 
 

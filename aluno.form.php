@@ -65,24 +65,6 @@ if (!isset($_SESSION['admin'])) {
                 <input type="text" class="form-control" placeholder="Sobrenome" name="snome" maxlength="150" required autofocus>
               </div>
 
-              <div class="col-md-12 pt-3">
-                Nome Do Responsável:
-                <input type="text" class="form-control" placeholder="Rose" name="nomeresp" maxlength="220" required autofocus>
-              </div>
-
-              <script type="text/javascript">
-
-                $(document).ready(function(){
-                  $('#date').mask('(00) 0 0000-0000');
-                })
-              </script>
-
-
-
-              <div class="col-md-12 pt-3">
-                Telefone Do Responsável:
-                <input type="numeric"   id="date" class="form-control" placeholder="" name="teleresp" maxlength="14" required autofocus>
-              </div>
 
 
               <div class="col-md-12 pt-3">
@@ -130,10 +112,32 @@ if (!isset($_SESSION['admin'])) {
                  ?>
                </select>  
              </div> -->
-
-
-
+             
+             <hr>
+             <br>
+             <h4>&nbsp;</h4>
+              <h4 class="mt-3"> Responsável: </h4>
              <div class="col-md-12 pt-3">
+              Nome Do Responsável:
+              <input type="text" class="form-control" placeholder="Rose" name="nomeresp" maxlength="220" required autofocus>
+            </div>
+
+            <script type="text/javascript">
+
+              $(document).ready(function(){
+                $('#date').mask('(00) 0 0000-0000');
+              })
+            </script>
+
+
+
+            <div class="col-md-12 pt-3">
+              Telefone Do Responsável:
+              <input type="numeric"   id="date" class="form-control" placeholder="" name="teleresp" maxlength="14" required autofocus>
+            </div>
+
+
+            <div class="col-md-12 pt-3">
               E-mail Responsavel:
               <input type="email" class="form-control" placeholder="exemplo@provedpr.com" name="emailresp" maxlength="100" required autofocus>
             </div>
@@ -157,32 +161,32 @@ if (!isset($_SESSION['admin'])) {
 </div>
 
 
-   <?php if (isset($_SESSION['cadok'])){                        
-                        echo "<script>
+<?php if (isset($_SESSION['cadok'])){                        
+  echo "<script>
 
-                  $.notify(\"Aluno Cadastrado com Sucesso!\", {
-                    type: 'success',
-
-
-                    animate: {
-
-                      enter: 'animated lightSpeedIn',
-                      exit: 'animated lightSpeedOut'
-                    }
-                    });
+  $.notify(\"Aluno Cadastrado com Sucesso!\", {
+    type: 'success',
 
 
+    animate: {
+
+      enter: 'animated lightSpeedIn',
+      exit: 'animated lightSpeedOut'
+    }
+    });
 
 
-                    </script> ";
-                        unset ($_SESSION ['cadok']);
-                       
+
+
+    </script> ";
+    unset ($_SESSION ['cadok']);
+
                         //Avisa que deu certo
-                      } ?>
+  } ?>
 
 
 
-<?php	include 'footer.php';	?> <!-- Importando Rodapé -->
+  <?php	include 'footer.php';	?> <!-- Importando Rodapé -->
 
 </body>
 </html> 
