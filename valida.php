@@ -38,7 +38,7 @@ if ($stm->rowCount()> 0) {
 		$row=$stm->fetch(PDO::FETCH_ASSOC);
 		$_SESSION ['idprofessor'] = $row['id'];
 		$_SESSION ['senha'] = $senha; 		
-		header('Location: turmas.php');
+		header('Location: telaprofessor.php');
 
 	} else {
 

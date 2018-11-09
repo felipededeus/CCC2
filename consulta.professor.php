@@ -98,6 +98,92 @@ else{
 						}
 						$data = new DateTime ($row['datareg']);
 
+							echo '<!-- Modal Editar -->
+									<div class="modal fade" id="ModalEdit'.$row['conselho'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document">
+									<div class="modal-content">
+									<div class="modal-header">
+									<h4>
+									Editar:
+									</h4> 
+									<hr>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Cancelar"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel"> </h4>
+									</div>
+									<div class="modal-body">
+
+									<!-- Colocar Form aqui -->
+									<form class="form-cadastro" action="edit.ocorrencia.php" method="post"  id="formedit">
+
+									
+
+
+									</div>
+
+									<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+									<button class="btn btn-danger" type="submit"><img src="../images/edit.png" width="15px"/> Alterar</button>            
+									</div>
+									</div>
+									</div>
+									</div>
+									</form>
+
+									<!-- Fim Modal Editar -->
+
+									<!-- Modal Deletar -->
+									<div class="modal fade" id="ModalDel'.$row['conselho'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document">
+									<div class="modal-content">
+									<div class="modal-header">
+									<h4>
+									Deletar:
+									</h4> 
+									<hr>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Cancelar"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel"> </h4>
+									</div>
+									<div class="modal-body">
+
+									<h4> Você tem certeza que deseja deletar a Ocorrência?
+									<h5> A ação não pode ser revertida... </h5>
+									<hr>
+									<h5> Obs: Só é possível deletar a ocorrência caso nenhum professor já tenha utilizado ela, certifique-se de deletar todas as ocorrências relacionadas com a mesma antes.
+
+									<!-- Colocar Form aqui -->
+									<form class="form-cadastro" action="del.ocorrencia.php" method="post" id="formdel">
+
+									<input type="text" value="'.$row['conselho'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="idocorrencias" hidden="1">					
+
+
+
+
+									</div>
+
+									<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+									<button class="btn btn-danger" type="submit"><img src="../images/del.png" width="15px"/> Deletar</button>            
+									</div>
+									</div>
+									</div>
+									</div>
+									</form>
+
+									<!-- Fim Modal Deletar -->
+
+
+
+
+
+
+
+
+									';
+
+
+
+
+
 						echo '
 
 						<div class="card mt-2">
@@ -128,10 +214,12 @@ else{
 						<li class="list-group-item"> Observações: '.$row['observ'].' </li>
 						</ul>
 						</div>
-						<div class="card-footer text text-right">
-						<a href="#" class="btn btn-primary">Enviar</a>
-						<a href="#" class="btn btn-primary">Editar</a>
-						<a href="#" class="btn btn-primary">Excluir</a>
+						<div class="card-footer text text-right">						
+						<!-- Button trigger modal -->
+									<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalEdit'.$row['conselho'].'">  <img src="images/edit.png" width="20px"/>  </div> 
+									<!-- Fim Button trigger modal -->
+						<div class="btn btn-danger mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalDel'.$row['conselho'].'">  <img src="../images/del.png" width="20px"/>  </div> 
+									<!-- Fim Button trigger modal -->
 						</div>
 
 						</div>
