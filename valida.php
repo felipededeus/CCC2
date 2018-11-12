@@ -55,7 +55,7 @@ if ($stm->rowCount()> 0) {
 			$_SESSION ['pedagogo'] = $pedagogo;		
 			$_SESSION ['username'] = $_POST['username'];
 			$_SESSION ['senha'] = $senha; 		
-			header('Location: pedagogo.php');
+			header('Location: telapedagogo.php');
 		} else { 
 
 

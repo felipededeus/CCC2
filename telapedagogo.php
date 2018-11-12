@@ -23,7 +23,7 @@ else{
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CCC - Professor</title>
+	<title>CCC - Pedagogo</title>
 	<?php  include 'imp.css.php';  ?> <!-- Importando CSS -->
 
 </head>
@@ -86,7 +86,7 @@ else{
 
 					</script>
 
-					<form method="POST" action="del.check.telaprofessor.php">
+					<form method="POST" action="del.check.geral.php">
 					
 
 					
@@ -109,7 +109,7 @@ else{
 						<tbody>
 
 
-							<?php  include 'consulta.professor.php';  ?>
+							<?php  include 'consulta.geral.php';  ?>
 
 						</tbody>
 					</table>

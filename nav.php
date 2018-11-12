@@ -24,7 +24,7 @@
            <?php
           if (isset($_SESSION['pedagogo'])) {
             echo ' 
-            <li class="nav-item active"> <a class="nav-link" href="turmas.php">Turmas<span class="sr-only">(current)</span></a></li>
+            <li class="nav-item active"> <a class="nav-link" href="telapedagogo.php">Painel Pedagogo |<span class="sr-only">(current)</span></a></li>
             ' ;   
           }     ?>  
 
@@ -32,7 +32,7 @@
               <?php
           if (isset($_SESSION['professor'])) {
             echo ' 
-            <li class="nav-item active"> <a class="nav-link" href="turmas.php">Turmas<span class="sr-only">(current)</span></a></li>
+            <li class="nav-item active"> <a class="nav-link" href="telaprofessor.php">Suas Ocorrências<span class="sr-only">(current)</span></a></li>
 
              <li class="nav-item active"> <a class="nav-link" href="ocorrencia.form.php">| Cadastrar Novas Informações |<span class="sr-only">(current)</span></a></li>
 

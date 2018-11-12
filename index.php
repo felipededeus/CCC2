@@ -7,7 +7,7 @@ if (isset($_SESSION['admin'])) {
 
 else{
   if (isset($_SESSION['username'])) {
-    header("Location: turmas.php");
+    header("Location: telaprofessor.php");
     exit;
   }
 }

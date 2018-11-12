@@ -9,6 +9,9 @@ if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit; }
 
+if (!isset($_SESSION['idprofessor'])) {
+   header("Location: index.php");
+    exit; }
 
 
 date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para Preencher Sozinho no Form
@@ -160,7 +163,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Definindo Zona de Tempo para 
                <div class="col-md-2 pt-3">
                 Número:
 
-                <input type="number" name="numaluno" class="form-control" id="numaluno" min="1" max="100" />
+                <input type="number"  name="numaluno" class="form-control" id="numaluno" min="1" max="100" />
               </div>
 
               <div class="col-md-10 pt-3">
