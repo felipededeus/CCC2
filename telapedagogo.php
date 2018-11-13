@@ -59,7 +59,7 @@ else{
 
          // Populate a dataset for autocomplete functionality
          // using data from first, second and third columns
-         api.cells('tr', [1,2,3,4,5,6,7,8]).every(function(){
+         api.cells('tr', [1,2,3,4,5,6,7,8,9]).every(function(){
             // Get cell data as plain text
             var data = $('<div>').html(this.data()).text();           
             if(dataSrc.indexOf(data) === -1){ dataSrc.push(data); }
@@ -95,6 +95,7 @@ else{
 						<thead>
 							<tr>
 								<th > </th>
+								<th style="display: none;"> </th>
 								<th style="display: none;"> </th>
 								<th style="display: none;"> </th>
 								<th style="display: none;"> </th>

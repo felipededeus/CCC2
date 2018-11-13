@@ -244,6 +244,7 @@ else{
 						<td style="display: none;"> Nº: '.$row['numaluno'].'  </td>
 						<td style="display: none;">Aluno(a): '.$row['alnome'].' '.$row['alsnome'].' </td>
 						<td style="display: none;">Data Registro: '.$data->format('d-m-Y').' </td>
+						<td style="display: none;">Professor(a): '.$row['profnome'].' '.$row['profsnome'].' </td>
 
 						</tr>
 
