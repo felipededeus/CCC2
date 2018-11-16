@@ -85,7 +85,8 @@ if (!$stm->rowCount()> 0) {   $_SESSION ['nexiste'] = "Erro[047]: Esse nome de u
 
              $to      = $row['email'];
              $subject = 'CCC - Recuperação de Senha';
-             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="'.$dominio.'novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a>';
+             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="'.$dominio.'novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a>
+             <h3> Ou copie e cole o seguinte link: '.$dominio.'novarecsenha.php?chave='.$chave.'</h3>';
              // To send HTML mail, the Content-type header must be set
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
@@ -125,7 +126,7 @@ if ($tipouser == "pedagogo") {
 
   $to      = $row['email'];
              $subject = 'CCC - Recuperação de Senha';
-             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="'.$dominio.'novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a>';
+             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="'.$dominio.'novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a><h3> Ou copie e cole o seguinte link: '.$dominio.'novarecsenha.php?chave='.$chave.'</h3>';
              // To send HTML mail, the Content-type header must be set
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
@@ -164,7 +165,7 @@ if ($tipouser == "admin") {
 
  $to      = $row['email'];
              $subject = 'CCC - Recuperação de Senha';
-             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="'.$dominio.'novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a>';
+             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="'.$dominio.'novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a><h3> Ou copie e cole o seguinte link: '.$dominio.'novarecsenha.php?chave='.$chave.'</h3>';
              // To send HTML mail, the Content-type header must be set
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
