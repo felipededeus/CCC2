@@ -5,6 +5,8 @@ $username = $_POST['username'];
 
 include("conexao.class.php");
 
+$dominio = 'conselhodeclasse.online/'; // Inserir dominio para funcionar
+
 //-----------------------------------------------------------------------------------------------------------------------------------------
       //Verificando se existe esse user cadastrado
 $sql = "SELECT email, username FROM admin WHERE username= :username UNION SELECT email, username FROM professor WHERE username= :username  UNION SELECT email, username FROM pedagogo WHERE username= :username";
@@ -83,7 +85,7 @@ if (!$stm->rowCount()> 0) {   $_SESSION ['nexiste'] = "Erro[047]: Esse nome de u
 
              $to      = $row['email'];
              $subject = 'CCC - Recuperação de Senha';
-             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a>';
+             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="'.$dominio.'novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a>';
              // To send HTML mail, the Content-type header must be set
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
@@ -92,7 +94,7 @@ if (!$stm->rowCount()> 0) {   $_SESSION ['nexiste'] = "Erro[047]: Esse nome de u
 
 
   echo '<h2> Um link de recuperação foi enviado para sua caixa de entrada </h2>
-  <h3> Veriique sua caixa de entrada e sua caixa de spam...</h3>
+  <h3> Verifique sua caixa de entrada e sua caixa de spam...</h3>
   <h4> Caso não receba nenhum email tente novamente ou entre em contato com um dos adminstradores do sistema</h4>';
 
                   //Gravando Hash no Banco
@@ -123,7 +125,7 @@ if ($tipouser == "pedagogo") {
 
   $to      = $row['email'];
              $subject = 'CCC - Recuperação de Senha';
-             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a>';
+             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="'.$dominio.'novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a>';
              // To send HTML mail, the Content-type header must be set
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
@@ -132,7 +134,7 @@ if ($tipouser == "pedagogo") {
 
 
   echo '<h2> Um link de recuperação foi enviado para sua caixa de entrada </h2>
-  <h3> Veriique sua caixa de entrada e sua caixa de spam...</h3>
+  <h3> Verifique sua caixa de entrada e sua caixa de spam...</h3>
   <h4> Caso não receba nenhum email tente novamente ou entre em contato com um dos adminstradores do sistema</h4>';
 
                   //Gravando Hash no Banco
@@ -162,7 +164,7 @@ if ($tipouser == "admin") {
 
  $to      = $row['email'];
              $subject = 'CCC - Recuperação de Senha';
-             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a>';
+             $message = '<h2>Você solicitou a troca de sua senha?</h2> <a href="'.$dominio.'novarecsenha.php?chave='.$chave.'">Clique aqui para recuperar sua senha</a>';
              // To send HTML mail, the Content-type header must be set
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
@@ -171,7 +173,7 @@ if ($tipouser == "admin") {
 
 
   echo '<h2> Um link de recuperação foi enviado para sua caixa de entrada </h2>
-  <h3> Veriique sua caixa de entrada e sua caixa de spam...</h3>
+  <h3> Verifique sua caixa de entrada e sua caixa de spam...</h3>
   <h4> Caso não receba nenhum email tente novamente ou entre em contato com um dos adminstradores do sistema</h4>';
 
                   //Gravando Hash no Banco
