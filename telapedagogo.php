@@ -10,9 +10,14 @@ else{
 		header("Location: index.php");
 		exit;
 	}
-
-
 }
+
+if (!isset($_SESSION['pedagogo'])) {
+		header("Location: index.php");
+		exit;
+	}
+
+
 ?> <!-- Verificando se o infeliz tah logado -->
 
 <!DOCTYPE html>
@@ -29,6 +34,41 @@ else{
 </head>
 <body>
 
+	 <!-- Modal -->
+    <div class="modal fade" id="ModalRelatorios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+           <h4>
+             Relatórios
+            </h4> 
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"> </h4>
+          </div>
+          <div class="modal-body">
+              <!-- Button trigger modal -->
+          <a href="sol.rel.turma.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">            
+            Relatório por Turma
+          </a>
+
+           <!-- Button trigger modal -->
+          <a href="sol.rel.geral.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">            
+            
+             Relatório Geral
+          </a>
+
+         
+      </div>
+        
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fim Modal -->
+
 	<?php  include 'imp.java.php';  ?> <!-- Importando Scripts -->
 
 	<div class="container-fluid bgnav">
@@ -40,9 +80,13 @@ else{
 			<div class="row"> 
 				<div class="col-xs-12">
 
-					<h2 class="text-center login-title"><h2>Suas Ocorrências:</h2> <hr>
+					<!-- Button trigger modal -->
+    <div class="btn btn-dacor mt-4"  style="color: #fff;" data-toggle="modal" data-target="#ModalRelatorios"> <h4> Outros Relatórios    </h4>   </div> <hr>
+        <!-- Fim Button trigger modal -->
+
+					<h2 class="text-center login-title"><h2>Relatório de Ocorrências</h2> <hr>
 				</h2>
-				<h4> Exibindo suas ocorrências dos últimos 10 (dez) dias... </h4>
+				<h4> Exibindo todas as ocorrências registradas no sistema...</h4>
 
 				<div class="account-wall">
 
@@ -59,7 +103,7 @@ else{
 
          // Populate a dataset for autocomplete functionality
          // using data from first, second and third columns
-         api.cells('tr', [1,2,3,4,5,6,7,8,9]).every(function(){
+         api.cells('tr', [1,2,3,4,5,6,7,8,9,10]).every(function(){
             // Get cell data as plain text
             var data = $('<div>').html(this.data()).text();           
             if(dataSrc.indexOf(data) === -1){ dataSrc.push(data); }
@@ -82,6 +126,26 @@ else{
 });
 
 
+$(function(){
+
+    // add multiple select / deselect functionality
+    $("#selectall").click(function () {
+          $('.case').attr('checked', this.checked);
+    });
+
+    // if all checkbox are selected, check the selectall checkbox
+    // and viceversa
+    $(".case").click(function(){
+
+        if($(".case").length == $(".case:checked").length) {
+            $("#selectall").attr("checked", "checked");
+        } else {
+            $("#selectall").removeAttr("checked");
+        }
+
+    });
+});
+
 						
 
 					</script>
@@ -91,10 +155,12 @@ else{
 
 					
 					<table id="resultados" class="table table-hover ">
+					<input class="form-check-input ml-2" name="seltudo" type="checkbox" id="selectall"/> <label for="selectall">Selecionar Tudo</label>
 
 						<thead>
 							<tr>
 								<th > </th>
+								<th style="display: none;"> </th>
 								<th style="display: none;"> </th>
 								<th style="display: none;"> </th>
 								<th style="display: none;"> </th>

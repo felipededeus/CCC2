@@ -61,7 +61,7 @@ else{
 
          // Populate a dataset for autocomplete functionality
          // using data from first, second and third columns
-         api.cells('tr', [1,2,3,4,5,6,7,8,9]).every(function(){
+         api.cells('tr', [1,2,3,4,5,6,7,8,9,10]).every(function(){
             // Get cell data as plain text
             var data = $('<div>').html(this.data()).text();           
             if(dataSrc.indexOf(data) === -1){ dataSrc.push(data); }
@@ -84,19 +84,48 @@ else{
 });
 
 
+$(function(){
+
+    // add multiple select / deselect functionality
+    $("#selectall").click(function () {
+          $('.case').attr('checked', this.checked);
+    });
+
+    // if all checkbox are selected, check the selectall checkbox
+    // and viceversa
+    $(".case").click(function(){
+
+        if($(".case").length == $(".case:checked").length) {
+            $("#selectall").attr("checked", "checked");
+        } else {
+            $("#selectall").removeAttr("checked");
+        }
+
+    });
+});
+
+
+   
+
+
+
 						
 
 					</script>
+
+
 
 					<form method="POST" action="del.check.telaprofessor.php">
 					
 
 					
 					<table id="resultados" class="table table-hover ">
+						<input class="form-check-input ml-2" name="seltudo" type="checkbox" id="selectall"/> <label for="selectall">Selecionar Tudo</label>
 
 						<thead>
 							<tr>
 								<th > </th>
+								<th style="display: none;"> </th>
 								<th style="display: none;"> </th>
 								<th style="display: none;"> </th>
 								<th style="display: none;"> </th>
@@ -117,7 +146,8 @@ else{
 						</tbody>
 					</table>
 					<input class="btn btn-danger" type="submit" value="Apagar Selecionados">
-					<input class="btn btn-secondary" type="reset" value="Limpar Seleção">
+					<input class="btn btn-secondary" type="reset" value="Limpar Seleção">			
+					
 				</form>
 
 

@@ -155,7 +155,7 @@ else{
 									<hr>									
 
 									<!-- Colocar Form aqui -->
-									<form class="form-cadastro" action="del.ocorrencia.telaprofessor.php" method="post" id="formdel">
+									<form class="form-cadastro" action="del.ocorrencia.geral.php" method="post" id="formdel">
 
 									<input type="text" value="'.$row['conselho'].'" class="form-control" placeholder="Nome da Matéria" required autofocus maxlength="60"  name="conselho" hidden="1">					
 
@@ -204,7 +204,7 @@ else{
 						'.$row['alnome'].' '.$row['alsnome'].'  </h4>
 
 						</div>
-						<input type="checkbox" name="checkbox[]" value="'.$row['conselho'].'" />
+						<input type="checkbox"  class="case" name="checkbox[]" value="'.$row['conselho'].'" />
 						Nº: '.$row['numaluno'].' 
 						| '.$row['oconome'].'
 
@@ -226,8 +226,10 @@ else{
 						</div>
 						<div class="card-footer text text-right">						
 						<!-- Button trigger modal -->
-									<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalEdit'.$row['conselho'].'">  <img src="images/edit.png" width="20px"/>  </div> 
-									<!-- Fim Button trigger modal -->
+                                    <a href="editaoco.form.php?conselho='.$row['conselho'].'">
+                                    <div class ="btn btn-dacor">
+             						  <img src="images/edit.png" width="20px"/>  </div></a>
+             						<!-- Fim Button trigger modal -->
 						<div class="btn btn-danger mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalDel'.$row['conselho'].'">  <img src="../images/del.png" width="20px"/>  </div> 
 									<!-- Fim Button trigger modal -->
 						</div>
@@ -245,6 +247,7 @@ else{
 						<td style="display: none;">Aluno(a): '.$row['alnome'].' '.$row['alsnome'].' </td>
 						<td style="display: none;">Data Registro: '.$data->format('d-m-Y').' </td>
 						<td style="display: none;">Professor(a): '.$row['profnome'].' '.$row['profsnome'].' </td>
+						 <td style="display: none;">Ocorrência: '.$row['oconome'].' </td>
 
 						</tr>
 
@@ -268,3 +271,27 @@ else{
 
 
 					?>
+
+
+  <?php if (isset($_SESSION['editok'])){                        
+                        echo "<script>
+
+                  $.notify(\"informações atualizadas com sucesso!\", {
+                    type: 'success',
+
+
+                    animate: {
+
+                      enter: 'animated lightSpeedIn',
+                      exit: 'animated lightSpeedOut'
+                    }
+                    });
+
+
+
+
+                    </script> ";
+                        unset ($_SESSION ['editok']);
+                       
+                        //Avisa que deu certo
+                      } ?>

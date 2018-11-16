@@ -232,11 +232,117 @@ if (!isset($_SESSION['admin'])) {
       
     </button>
 
+
 <div class="jumbotron" >
 
 
+<hr>
+<h3>Exibindo Todas as Ocorrências Cadastradas no Sistema...</h3>
 
-  
+
+  <div class="account-wall">
+
+
+    <script type="text/javascript">
+
+            $(document).ready(function() {
+   var dataSrc = [];
+
+   var table = $('#resultados').DataTable({
+     "order": [[ 8, "desc" ]],
+      'initComplete': function(){
+         var api = this.api();
+
+         // Populate a dataset for autocomplete functionality
+         // using data from first, second and third columns
+         api.cells('tr', [1,2,3,4,5,6,7,8,9,10]).every(function(){
+            // Get cell data as plain text
+            var data = $('<div>').html(this.data()).text();           
+            if(dataSrc.indexOf(data) === -1){ dataSrc.push(data); }
+         });
+         
+         // Sort dataset alphabetically
+         dataSrc.sort();
+        
+         // Initialize Typeahead plug-in
+         $('.dataTables_filter input[type="search"]', api.table().container())
+            .typeahead({
+               source: dataSrc,
+               afterSelect: function(value){
+                  api.search(value).draw();
+               }
+            }
+         );
+      }
+   });
+});
+
+
+$(function(){
+
+    // add multiple select / deselect functionality
+    $("#selectall").click(function () {
+          $('.case').attr('checked', this.checked);
+    });
+
+    // if all checkbox are selected, check the selectall checkbox
+    // and viceversa
+    $(".case").click(function(){
+
+        if($(".case").length == $(".case:checked").length) {
+            $("#selectall").attr("checked", "checked");
+        } else {
+            $("#selectall").removeAttr("checked");
+        }
+
+    });
+});
+
+            
+
+          </script>
+
+          <form method="POST" action="del.check.geral.php">
+          
+
+          
+          <table id="resultados" class="table table-hover ">
+          <input class="form-check-input ml-2" name="seltudo" type="checkbox" id="selectall"/> <label for="selectall">Selecionar Tudo</label>
+
+            <thead>
+              <tr>
+                <th > </th>
+                <th style="display: none;"> </th>
+                <th style="display: none;"> </th>
+                <th style="display: none;"> </th>
+                <th style="display: none;"> </th>
+                <th style="display: none;"> </th>
+                <th style="display: none;"> </th>
+                <th style="display: none;"> </th>
+                <th style="display: none;"> </th>
+                <th style="display: none;"> </th>
+                <th style="display: none;"> </th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+
+              <?php  include 'consulta.geral.php';  ?>
+
+            </tbody>
+          </table>
+          <input class="btn btn-danger" type="submit" value="Apagar Selecionados">
+          <input class="btn btn-secondary" type="reset" value="Limpar Seleção">
+        </form>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </div> <!-- /jumbotron-->
