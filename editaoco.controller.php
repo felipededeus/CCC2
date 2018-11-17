@@ -56,7 +56,7 @@ include "conexao.class.php";
 
 
 
-  $sql = "UPDATE conselho SET datareg = :datareg , professor_id = :idprofessor , materia_IDmateria = :idmateria, aluno_idaluno = :idaluno, ocorrencias_idocorrencias = :idocorrencias, classe_idclasse = :idclasse, observ = :observ, cursos_id = :cursosid ";
+  $sql = "UPDATE conselho SET datareg = :datareg , professor_id = :idprofessor , materia_IDmateria = :idmateria, aluno_idaluno = :idaluno, ocorrencias_idocorrencias = :idocorrencias, classe_idclasse = :idclasse, observ = :observ, cursos_id = :cursosid WHERE conselho = :conselho ";
 
    $stm = conexao::prepare($sql);
 
@@ -67,7 +67,9 @@ include "conexao.class.php";
 $stm->bindValue(':idocorrencias', $idocorrencias);
 $stm->bindValue(':idclasse', $idclasse);
 $stm->bindValue(':observ', $observ);
-$stm->bindValue(':cursosid', $cursosid);   
+$stm->bindValue(':cursosid', $cursosid);
+$stm->bindValue(':conselho', $conselho);      
+
 
     
 if($stm->execute()){
