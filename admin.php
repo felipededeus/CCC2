@@ -348,7 +348,54 @@ $(function(){
 </div> <!-- /jumbotron-->
 
 
-<?php	include 'footer.php';	?> <!-- Importando Rodapé -->
+<?php	include 'footer.php';	
+
+if (isset($_SESSION['delresultid'])) {
+                
+
+                if ($_SESSION['delresultid'] == 1){
+                  echo "<script>
+
+                  $.notify(\"Informações deletadas com sucesso!\", {
+                    type: 'success',
+
+
+                    animate: {
+
+                      enter: 'animated lightSpeedIn',
+                      exit: 'animated lightSpeedOut'
+                    }
+                    });
+
+
+
+
+                    </script> ";
+                    unset ($_SESSION ['delresultid']);
+                  }
+                }
+
+                if (isset($_SESSION['delresultid'])) {
+                  if ($_SESSION['delresultid'] == 0){
+                    echo "<script>
+                    $.notify(\"Um erro ocorreu ao tentar deletar as informações: Verifique se as mesmas não estão sendo utilizadas.\", {
+                      type: 'danger',
+                    //showProgressbar: true,
+
+
+                      animate: {
+
+                        enter: 'animated lightSpeedIn',
+                        exit: 'animated lightSpeedOut'
+                      }
+                    }); ";
+                    unset ($_SESSION ['delresultid']);
+                  }
+                }
+
+
+
+?> <!-- Importando Rodapé -->
 
 
 </body>
