@@ -133,7 +133,7 @@ if (!isset($_SESSION['admin'])) {
 
             <div class="col-md-12 pt-3">
               Telefone Do Responsável:
-              <input type="numeric"   id="date" class="form-control" placeholder="" name="teleresp" maxlength="14" required autofocus>
+              <input type="numeric"   id="date" class="form-control" placeholder="" name="teleresp" maxlength="17" required autofocus>
             </div>
 
 

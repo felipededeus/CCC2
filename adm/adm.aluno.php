@@ -234,7 +234,7 @@
 
 									<div class="col-md-12 pt-3">
 									Telefone de Reponsavel:
-									<input type="text" value="'.$row['teleresp'].'" class="form-control" placeholder="Telefone do Reponsável" required autofocus maxlength="12"  name="teleresp">
+									<input type="text" value="'.$row['teleresp'].'" class="form-control date" placeholder="Telefone do Reponsável" required autofocus maxlength="17"  name="teleresp">
 									</div>
 
 									<div class="col-md-12 pt-3">
@@ -244,7 +244,21 @@
 
 									<div class="col-md-12 pt-3">
 									Sexo:
-									<input type="text" value="'.$row['sexo'].'" class="form-control" placeholder="Sexo do Aluno" required autofocus maxlength="11"  name="sexo">
+									';
+
+
+
+									if ($row['sexo'] == 1) {
+										echo' <label class=" radio-inline"><input type="radio" name="sexo" value="1" checked> Masculino </label>
+                <label class="radio-inline"><input type="radio" name="sexo" value="0"> Feminino  </label> ';
+									} else {
+
+										echo ' <label class=" radio-inline"><input type="radio" name="sexo" value="1"> Masculino </label>
+                <label class="radio-inline"><input type="radio" name="sexo" value="0" checked> Feminino  </label>';
+									}
+
+
+									echo '
 									</div>
 
 									<div class="col-md-12 pt-3">
@@ -387,6 +401,14 @@
 
 
 	<?php	include '../footer.php';	?> <!-- Importando Rodapé -->
+
+	<script type="text/javascript">
+
+              $(document).ready(function(){
+                $('.date').mask('(00) 0 0000-0000');
+              })
+            </script>
+
 </body>
 </html> 
 
