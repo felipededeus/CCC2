@@ -6,12 +6,14 @@ if (isset($_SESSION['admin'])) {
 }
 
 else{
-  if (isset($_SESSION['username'])) {
+  if (isset($_SESSION['professor'])) {
     header("Location: telaprofessor.php");
     exit;
   }
 }
-
+if (isset($_SESSION['pedagogo'])) {
+    header("Location: telapedagogo.php");
+    exit; }
 ?> <!-- Verificando se o user tah logado pra mandar pra sua página-->
 
 

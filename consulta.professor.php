@@ -38,55 +38,6 @@ echo '<datalist id="alunos">';
 
 echo '</datalist>';
 
-// Busca Cursos Cadastrados
-//include "conexao.class.php";
-$sqlcursos = "SELECT * FROM cursos";
-$stmcursos = conexao::prepare($sqlcursos);
-$stmcursos->execute();    
-
-
-//Fim Busca Cursos Cadastrados
-
-
-// Busca Matérias
-
-$sqlmateria = "SELECT * FROM materia";
-$stmmateria = conexao::prepare($sqlmateria);
-$stmmateria->execute();    
-
-
-
-//Fim Busca MAtérias
-
-
-// Busca Turmas
-
-$matu = 1;
-$vesp = 2;
-$notu = 3;
-$contra = 4;  
-
-$sqlturma = "SELECT * FROM classe";
-$stmturma = conexao::prepare($sqlturma);
-$stmturma->execute();   
-
-
-
-
-// Fim Busca Turmas
-
-// Busca Ocorrências
-
-	$sqloco = "SELECT * FROM ocorrencias";
-	$stmoco = conexao::prepare($sqloco);
-	$stmoco->execute();    
-
-	
-
-
-
-
-// Fim Busca Informações para criar form -------------------------------------------------
 
 
 
@@ -184,185 +135,7 @@ $defaultocorren = $row['ocorrencias_idocorrencias'];
 		}
 		$data = new DateTime ($row['datareg']);
 
-		echo '<!-- Modal Editar -->
-		<div class="modal fade" id="ModalEdit'.$row['conselho'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-		<h4>
-		Editar:
-		</h4> 
-		<hr>
-		<button type="button" class="close" data-dismiss="modal" aria-label="Cancelar"><span aria-hidden="true">&times;</span></button>
-		<h4 class="modal-title" id="myModalLabel"> </h4>
-		</div>
-		<div class="modal-body">
-
-		<!-- Colocar Form aqui -->
-		<form class="form-cadastro" action="edit.ocorrencia.php" method="post"  id="formedit">
-
-		';
-
-
-
-
-echo '
-                                       <div class="col-md-7 pt-3">
-                                         Data da Ocorrência:
-                                         <input name="datareg" class="form-control" type="date" value="'.$data->format('Y-m-d').'" />
-                                       </div>
-
-                                       <div class="col-md-5 pt-3">
-                                         <br>
-                                         Curso
-                                         <select name="cursosid" class="form-control form-control-lg"> 
-
-                                         ';
-
-                                         while($rowcursos=$stmcursos->fetch(PDO::FETCH_ASSOC)){
-										 echo '<option value="'.$rowcursos['id'].'">'.$rowcursos['nome'].'</option>'; }
-										 echo '
-
-
-                                        
-                                         </select>  
-
-
-
-                                         </div>
-
-
-                                         <div class="col-md-6 pt-3">
-               							     Matéria:
-               							   <select name="idmateria" class="form-control form-control-lg"> 
-               							   ';
-
-
-               							   while($rowmateria=$stmmateria->fetch(PDO::FETCH_ASSOC)){
-										 echo '<option value="'.$rowmateria['IDmateria'].'">'.$rowmateria['nome'].'</option>';
-
-																				}
-
-
-
-
-
-               							   echo '
-
-                 
-                						   </select>  
-
-             							 </div>
-
-
-
-             							  <div class="col-md-6 pt-3">
-                						  Turma:
-                						 <select name="idclasse" class="form-control form-control-lg"> 
-
-
-                						 ';
-
-                						 while($rowturma=$stmturma->fetch(PDO::FETCH_ASSOC)){
-
-	if ($rowturma['periestu'] == $matu) {
-		$periestuturma = "Matutino";
-	}
-
-	if ($rowturma['periestu'] == $vesp) {
-		$periestuturma = "Vespertino";
-	}
-
-	if ($rowturma['periestu'] == $notu) {
-		$periestuturma = "Noturno";
-	}
-
-	if ($rowturma['periestu'] == $contra) {
-		$periestuturma = "Contraturno";
-	}
-
-
-
-
-
-	echo '<option value="'.$rowturma['idclasse'].'">'.$rowturma['numero'].'º'.$rowturma['letra'].' '.$periestuturma.'</option>'; }
-
-
-
-	echo '
-
-	 <div class="col-md-12 pt-3">
-
-                <input hidden="1" name="idprofessor" class="form-control" value="'.$_SESSION['idprofessor'].'"> </input>
-
-              </div>
-
-               <div class="col-md-2 pt-3">
-                Número:
-
-                <input type="number"  name="numaluno" class="form-control" id="numaluno" min="1" max="100" />
-              </div>
-
-              
-              <div class="col-md-10 pt-3">
-               <div id="mydiv'.$count.'">
-                Nome do Aluno: (Convertido para código ao clicar)
-
-                <input type="text" name="idaluno" class="form-control aluno " list="alunos"/ >
-                
-                </div>
-
-              </div>      
-
-
-              
-
-
-
-
- <div class="col-md-12 pt-3">
-                Ocorrências:
-                <select name="idocorrencias" class="form-control form-control-lg"> ';
-
-
-                while($rowoco=$stmoco->fetch(PDO::FETCH_ASSOC)){
-		echo '<option value="'.$rowoco['idocorrencias'].'">'.$rowoco['nome'].'</option>';
-
-	}
-echo ' </select>  
-
-              </div>
-
-                
-
-
-              <div class="col-md-12 pt-3">
-  Observações:
-
-
-
-  <textarea name="observ" class="form-control" maxlength="200"></textarea>
-
-</div>
-
-
-
-
-
-
-
-                             </div>
-
-                             <div class="modal-footer">
-                             	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                             	<button class="btn btn-danger" type="submit"><img src="../images/edit.png" width="15px"/> Alterar</button>            
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </form>
-
-             <!-- Fim Modal Editar -->
+		echo '
 
              <!-- Modal Deletar -->
              <div class="modal fade" id="ModalDel'.$row['conselho'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -432,7 +205,7 @@ echo ' </select>
              						'.$row['alnome'].' '.$row['alsnome'].'  </h4>
 
              					</div>
-             					<input type="checkbox" name="checkbox[]" value="'.$row['conselho'].'" />
+             					<input type="checkbox" class="case" name="checkbox[]" value="'.$row['conselho'].'" />
              					Nº: '.$row['numaluno'].' 
              					| '.$row['oconome'].'
 
@@ -454,7 +227,9 @@ echo ' </select>
              					</div>
              					<div class="card-footer text text-right">						
              						<!-- Button trigger modal -->
-             						<div class="btn btn-dacor mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalEdit'.$row['conselho'].'">  <img src="images/edit.png" width="20px"/>  </div> 
+                                    <a href="editaoco.form.php?conselho='.$row['conselho'].'">
+                                    <div class ="btn btn-dacor">
+             						  <img src="images/edit.png" width="20px"/>  </div></a>
              						<!-- Fim Button trigger modal -->
              						<div class="btn btn-danger mt-2"  style="color: #fff;" data-toggle="modal" data-target="#ModalDel'.$row['conselho'].'">  <img src="../images/del.png" width="20px"/>  </div> 
              						<!-- Fim Button trigger modal -->
@@ -473,6 +248,7 @@ echo ' </select>
              		<td style="display: none;">Aluno(a): '.$row['alnome'].' '.$row['alsnome'].' </td>
              		<td style="display: none;">Data Registro: '.$data->format('d-m-Y').' </td>
                     <td style="display: none;">Professor(a): '.$row['profnome'].' '.$row['profsnome'].' </td>
+                    <td style="display: none;">Ocorrência: '.$row['oconome'].' </td>
 
              	</tr>
 
@@ -496,3 +272,27 @@ echo ' </select>
 
 
          ?>
+
+
+  <?php if (isset($_SESSION['editok'])){                        
+                        echo "<script>
+
+                  $.notify(\"informações atualizadas com sucesso!\", {
+                    type: 'success',
+
+
+                    animate: {
+
+                      enter: 'animated lightSpeedIn',
+                      exit: 'animated lightSpeedOut'
+                    }
+                    });
+
+
+
+
+                    </script> ";
+                        unset ($_SESSION ['editok']);
+                       
+                        //Avisa que deu certo
+                      } ?>
