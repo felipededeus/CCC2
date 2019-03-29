@@ -43,6 +43,12 @@ class Conexao{
     return self::getInstance()->prepare($sql);
   }
 
+  public static function ultid($id){
+    return self::getInstance()->lastInsertId($id);
+  }
+
+
+
 }
 
 function hashrec(){

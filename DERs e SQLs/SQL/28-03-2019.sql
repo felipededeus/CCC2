@@ -178,6 +178,7 @@ CREATE TABLE IF NOT EXISTS `ccc`.`responsavel` (
   `movel` VARCHAR(17) NULL,
   `email` VARCHAR(100) NULL,
   `endr` VARCHAR(250) NULL,
+  `obsvr` VARCHAR(250) NULL,
   PRIMARY KEY (`idresponsavel`));
 
 

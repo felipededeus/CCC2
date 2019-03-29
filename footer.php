@@ -75,7 +75,7 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <div class="footer-copyright text-center py-3">© 2018 - 2019 Copyright:
       <a href="#"> Felipe de Deus & Igor Nóbrega</a> Todos os direitos reservados.
     </div>
     <!-- Copyright -->

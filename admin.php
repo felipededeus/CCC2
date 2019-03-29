@@ -69,6 +69,11 @@ if (!isset($_SESSION['admin'])) {
           </a>
 
           <!-- Button trigger modal -->
+          <a href="resp.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
+            <img src="images/add.png" width="18px"/>  Responsável
+          </a>
+
+          <!-- Button trigger modal -->
           <a href="aluno.form.php" class="btn btn-dacor col-md-12 m-1 text-left"  style="color: #fff;">
             <img src="images/add.png" width="18px"/>  Aluno
           </a>

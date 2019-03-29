@@ -34,8 +34,6 @@ session_start();
 include("conexao.class.php");   //verifica se existe conexão com bd; caso não tenta, cria uma nova
 
 
-//Segurança de SQL INJECTION  
-
 		
 
 //Pegar dados do Form
@@ -44,66 +42,39 @@ include("conexao.class.php");   //verifica se existe conexão com bd; caso não 
 
 		$snome = $_POST['snome'];
 
-		$sexo = $_POST ['sexo'];
+		$telfixo = $_POST ['telfixo'];
 
-		$dtnasc = $_POST['dtnasc'];
+		$movel = $_POST ['movel'];		
 
-		$cgm = $_POST ['cgm'];
+		$endr = $_POST['endr'];
 
-		$idresponsavel = $_POST ['idresponsavel'];
+		$obsvr = $_POST ['obsvr'];
 
-		$idresponsavel2 = $_POST ['idresponsavel2'];
+		$email = $_POST ['email'];
+
+		
+
 		
 
 	
 
 //Criando conexão com Banco de Dados
 
-		$sql = "INSERT INTO aluno (nome, snome, sexo, dtnasc, cgm) values (?,?,?,?,?)";
+		$sql = "INSERT INTO responsavel (nome, snome, telfixo, movel, email, endr, obsvr) values (?,?,?,?,?,?,?)";
 
 		$stm = conexao::prepare($sql);
-		
 
 		$stm->bindValue(1, $nome);
 		$stm->bindValue(2, $snome);
-		$stm->bindValue(3, $sexo);
-		$stm->bindValue(4, $dtnasc);
-		$stm->bindValue(5, $cgm);	
-
-
+		$stm->bindValue(3, $telfixo);
+		$stm->bindValue(4, $movel);	
+		$stm->bindValue(5, $email);
+		$stm->bindValue(6, $endr);
+		$stm->bindValue(7, $obsvr);
 		
 		if($stm->execute()){
-
-
-			$lastid = conexao::ultid("idaluno");
-
-			
-			
-			$sqlresp = "INSERT INTO responsavel_has_aluno (responsavel_idresponsavel, aluno_idaluno) values (?,?)";
-
-			$stmresp = conexao::prepare($sqlresp);
-
-			$stmresp->bindValue(1, $idresponsavel);
-			$stmresp->bindValue(2, $lastid);
-
-			$stmresp->execute();
-
-			if ($idresponsavel2 != null) {
-
-					$sqlresp2 = "INSERT INTO responsavel_has_aluno (responsavel_idresponsavel, aluno_idaluno) values (?,?)";
-
-			$stmresp2 = conexao::prepare($sqlresp);
-
-			$stmresp2->bindValue(1, $idresponsavel2);
-			$stmresp2->bindValue(2, $lastid);
-			$stmresp->execute2();
-
-			}
-
-
-
 			 $_SESSION ['cadok'] =  "1" ; // Gera Session se deu certo
-           header('Location: aluno.form.php'); // Manda pra página de onde o user veio
+           header('Location: resp.form.php'); // Manda pra página de onde o user veio
            exit(); // Para o Script     ;
 		}
 
