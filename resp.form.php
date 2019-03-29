@@ -98,9 +98,13 @@ if (!isset($_SESSION['admin'])) {
             </div>
 
 
-              <div class="col-md-12 pt-3">
+              <div class="col-md-12 row-md-5 pt-3">
               Endereço:
-              <textarea class="form-control" name="endr" maxlength="250"></textarea>
+              <textarea class="form-control" name="endr" maxlength="250">Rua e Número:
+Bairro:
+Complemento:
+Cidade: Cascavel - PR          
+              </textarea>
             </div>
 
              <div class="col-md-12 pt-3">
